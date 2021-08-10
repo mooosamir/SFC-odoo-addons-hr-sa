@@ -3,6 +3,17 @@
 
 from odoo import _, api, exceptions, fields, models
 
+class Picking(models.Model):
+    _inherit = 'stock.picking'
+
+    def button_validate(self):
+        res = super(Picking, self).button_validate()
+        for line in self.purchase_id.order_line:
+            if line.purchase_request_lines:
+                for pr in line.purchase_request_lines:
+                    pr.request_id.button_done()
+        return res
+
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"

@@ -21,7 +21,7 @@
                 <separator string="New PO details:" />
                 <newline />
                 <group>
-                    <field name="supplier_id" />
+                    <field name="supplier_id" widget="many2many_tags"/>
                 </group>
                 <newline />
                 <group>

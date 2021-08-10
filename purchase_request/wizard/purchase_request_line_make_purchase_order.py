@@ -11,7 +11,7 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
     _name = "purchase.request.line.make.purchase.order"
     _description = "Purchase Request Line Make Purchase Order"
 
-    supplier_id = fields.Many2one(
+    supplier_id = fields.Many2many(
         comodel_name="res.partner",
         string="Supplier",
         required=True,
@@ -112,25 +112,26 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
             return res
         res["item_ids"] = self.get_items(request_line_ids)
         request_lines = self.env["purchase.request.line"].browse(request_line_ids)
-        supplier_ids = request_lines.mapped("supplier_id").ids
-        if len(supplier_ids) == 1:
-            res["supplier_id"] = supplier_ids[0]
+        # supplier_ids = request_lines.mapped("supplier_id").ids
+        # if len(supplier_ids) == 1:
+        #     res["supplier_id"] = supplier_ids[0]
         return res
 
     @api.model
-    def _prepare_purchase_order(self, picking_type, group_id, company, origin):
-        if not self.supplier_id:
+    def _prepare_purchase_order(self,supplier, picking_type, group_id, company, origin):
+        if not supplier:
             raise UserError(_("Enter a supplier."))
-        supplier = self.supplier_id
+        # supplier = self.supplier_id
         data = {
             "origin": origin,
-            "partner_id": self.supplier_id.id,
+            "partner_id": supplier.id,
             "fiscal_position_id": supplier.property_account_position_id
             and supplier.property_account_position_id.id
             or False,
             "picking_type_id": picking_type.id,
             "company_id": company.id,
             "group_id": group_id.id,
+            "pr_id": self.id,
         }
         return data
 
@@ -199,7 +200,6 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
     @api.model
     def _get_purchase_line_name(self, order, line):
         product_lang = line.product_id.with_context(
-            {"lang": self.supplier_id.lang, "partner_id": self.supplier_id.id}
         )
         name = product_lang.display_name
         if product_lang.description_purchase:
@@ -243,68 +243,72 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
             line = item.line_id
             if item.product_qty <= 0.0:
                 raise UserError(_("Enter a positive quantity."))
-            if self.purchase_order_id:
-                purchase = self.purchase_order_id
-            if not purchase:
-                po_data = self._prepare_purchase_order(
-                    line.request_id.picking_type_id,
-                    line.request_id.group_id,
-                    line.company_id,
-                    line.origin,
-                )
-                purchase = purchase_obj.create(po_data)
+            if self.supplier_id:
+                for supplier in self.supplier_id:
+                    if self.purchase_order_id:
+                        purchase = self.purchase_order_id
+                    purchase = False
+                    if not purchase:
+                        po_data = self._prepare_purchase_order(
+                            supplier,
+                            line.request_id.picking_type_id,
+                            line.request_id.group_id,
+                            line.company_id,
+                            line.origin,
+                        )
+                        purchase = purchase_obj.create(po_data)
 
-            # Look for any other PO line in the selected PO with same
-            # product and UoM to sum quantities instead of creating a new
-            # po line
-            domain = self._get_order_line_search_domain(purchase, item)
-            available_po_lines = po_line_obj.search(domain)
-            new_pr_line = True
-            # If Unit of Measure is not set, update from wizard.
-            if not line.product_uom_id:
-                line.product_uom_id = item.product_uom_id
-            # Allocation UoM has to be the same as PR line UoM
-            alloc_uom = line.product_uom_id
-            wizard_uom = item.product_uom_id
-            if available_po_lines and not item.keep_description:
-                new_pr_line = False
-                po_line = available_po_lines[0]
-                po_line.purchase_request_lines = [(4, line.id)]
-                po_line.move_dest_ids |= line.move_dest_ids
-                po_line_product_uom_qty = po_line.product_uom._compute_quantity(
-                    po_line.product_uom_qty, alloc_uom
-                )
-                wizard_product_uom_qty = wizard_uom._compute_quantity(
-                    item.product_qty, alloc_uom
-                )
-                all_qty = min(po_line_product_uom_qty, wizard_product_uom_qty)
-                self.create_allocation(po_line, line, all_qty, alloc_uom)
-            else:
-                po_line_data = self._prepare_purchase_order_line(purchase, item)
-                if item.keep_description:
-                    po_line_data["name"] = item.name
-                po_line = po_line_obj.create(po_line_data)
-                po_line_product_uom_qty = po_line.product_uom._compute_quantity(
-                    po_line.product_uom_qty, alloc_uom
-                )
-                wizard_product_uom_qty = wizard_uom._compute_quantity(
-                    item.product_qty, alloc_uom
-                )
-                all_qty = min(po_line_product_uom_qty, wizard_product_uom_qty)
-                self.create_allocation(po_line, line, all_qty, alloc_uom)
-            # TODO: Check propagate_uom compatibility:
-            new_qty = pr_line_obj._calc_new_qty(
-                line, po_line=po_line, new_pr_line=new_pr_line
-            )
-            po_line.product_qty = new_qty
-            po_line._onchange_quantity()
-            # The onchange quantity is altering the scheduled date of the PO
-            # lines. We do not want that:
-            date_required = item.line_id.date_required
-            po_line.date_planned = datetime(
-                date_required.year, date_required.month, date_required.day
-            )
-            res.append(purchase.id)
+                    # Look for any other PO line in the selected PO with same
+                    # product and UoM to sum quantities instead of creating a new
+                    # po line
+                    domain = self._get_order_line_search_domain(purchase, item)
+                    available_po_lines = po_line_obj.search(domain)
+                    new_pr_line = True
+                    # If Unit of Measure is not set, update from wizard.
+                    if not line.product_uom_id:
+                        line.product_uom_id = item.product_uom_id
+                    # Allocation UoM has to be the same as PR line UoM
+                    alloc_uom = line.product_uom_id
+                    wizard_uom = item.product_uom_id
+                    if available_po_lines and not item.keep_description:
+                        new_pr_line = False
+                        po_line = available_po_lines[0]
+                        po_line.purchase_request_lines = [(4, line.id)]
+                        po_line.move_dest_ids |= line.move_dest_ids
+                        po_line_product_uom_qty = po_line.product_uom._compute_quantity(
+                            po_line.product_uom_qty, alloc_uom
+                        )
+                        wizard_product_uom_qty = wizard_uom._compute_quantity(
+                            item.product_qty, alloc_uom
+                        )
+                        all_qty = min(po_line_product_uom_qty, wizard_product_uom_qty)
+                        self.create_allocation(po_line, line, all_qty, alloc_uom)
+                    else:
+                        po_line_data = self._prepare_purchase_order_line(purchase, item)
+                        if item.keep_description:
+                            po_line_data["name"] = item.name
+                        po_line = po_line_obj.create(po_line_data)
+                        po_line_product_uom_qty = po_line.product_uom._compute_quantity(
+                            po_line.product_uom_qty, alloc_uom
+                        )
+                        wizard_product_uom_qty = wizard_uom._compute_quantity(
+                            item.product_qty, alloc_uom
+                        )
+                        all_qty = min(po_line_product_uom_qty, wizard_product_uom_qty)
+                        self.create_allocation(po_line, line, all_qty, alloc_uom)
+                    # TODO: Check propagate_uom compatibility:
+                    new_qty = pr_line_obj._calc_new_qty(
+                        line, po_line=po_line, new_pr_line=new_pr_line
+                    )
+                    po_line.product_qty = new_qty
+                    po_line._onchange_quantity()
+                    # The onchange quantity is altering the scheduled date of the PO
+                    # lines. We do not want that:
+                    date_required = item.line_id.date_required
+                    po_line.date_planned = datetime(
+                        date_required.year, date_required.month, date_required.day
+                    )
+                    res.append(purchase.id)
 
         return {
             "domain": [("id", "in", res)],
