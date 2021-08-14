@@ -247,8 +247,9 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
                 for supplier in self.supplier_id:
                     if self.purchase_order_id:
                         purchase = self.purchase_order_id
-                    purchase = False
-                    if not purchase:
+                    # purchase = False
+                    if not self.purchase_order_id:
+                        purchase = False
                         po_data = self._prepare_purchase_order(
                             supplier,
                             line.request_id.picking_type_id,
