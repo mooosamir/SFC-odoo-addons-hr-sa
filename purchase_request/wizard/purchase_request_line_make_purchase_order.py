@@ -131,7 +131,7 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
             "picking_type_id": picking_type.id,
             "company_id": company.id,
             "group_id": group_id.id,
-            "pr_id": self.id,
+            # "pr_id": self.id,
         }
         return data
 
