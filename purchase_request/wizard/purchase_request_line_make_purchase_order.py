@@ -237,19 +237,20 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
         purchase_obj = self.env["purchase.order"]
         po_line_obj = self.env["purchase.order.line"]
         pr_line_obj = self.env["purchase.request.line"]
-        purchase = False
 
-        for item in self.item_ids:
-            line = item.line_id
-            if item.product_qty <= 0.0:
-                raise UserError(_("Enter a positive quantity."))
-            if self.supplier_id:
-                for supplier in self.supplier_id:
+        if self.supplier_id:
+            for supplier in self.supplier_id:
+                purchase = False
+                for item in self.item_ids:
+                    line = item.line_id
+                    if item.product_qty <= 0.0:
+                        raise UserError(_("Enter a positive quantity."))
+
                     if self.purchase_order_id:
                         purchase = self.purchase_order_id
                     # purchase = False
-                    if not self.purchase_order_id:
-                        purchase = False
+                    if purchase == False:
+                        # purchase = False
                         po_data = self._prepare_purchase_order(
                             supplier,
                             line.request_id.picking_type_id,
