@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+import json
 from odoo import http, _
 from odoo.http import request, Response
 
@@ -8,8 +9,16 @@ _logger = logging.getLogger(__name__)
 
 class HttpRequestApi(http.Controller):
 
-    @http.route(['/api/order/create'], auth='public', csrf=False, type="json", cors='*')
+    @http.route('/api/order/create', auth='public', type='json', csrf=False)
     def order_add_order(self, **kw):
+        token_id = request.httprequest.headers.get('token',False)
+        invoice_token = request.env['ir.config_parameter'].sudo().get_param('invoice_api_integration.invoice_token', False)
+        if (invoice_token or token_id) and token_id != invoice_token:
+            return {
+                "isSubmitted": True,
+                "isSubmittedSuccessfully": False,
+                "errors": ["You can't access this API Please Check Your Token"],
+                "model": None}
         try:
             Client = kw.get('Client')
             items_lines = kw.get('Items')
@@ -19,6 +28,7 @@ class HttpRequestApi(http.Controller):
             partner_obj = request.env['res.partner'].sudo()
             journal_id = request.env['account.journal'].sudo().search([('is_ecommerce', '=', True)], limit=1)
             tax_id = request.env['account.tax'].sudo().search([('is_ecommerce', '=', True)], limit=1)
+            team_id = request.env['crm.team'].sudo().search([('is_ecommerce', '=', True)], limit=1)
             account_id = journal_id.default_account_id
             clientID = False
             lines = []
@@ -59,6 +69,9 @@ class HttpRequestApi(http.Controller):
 
             order_val = {
                 "partner_id": clientID,
+                "team_id": team_id.id,
+                "user_id": team_id.user_id.id,
+                "journal_id": journal_id.id,
                 "invoice_status": 'wait',
                 "move_type": 'out_invoice',
                 "order_date": str(kw.get('Order_Datetime')),
