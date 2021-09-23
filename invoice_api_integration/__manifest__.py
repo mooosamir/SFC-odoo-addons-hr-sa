@@ -16,6 +16,7 @@ Manage ecommerce api
         'product',
         'account_accountant',
         'analytic',
+        'sale',
         'sales_team',
     ],
     "data": [

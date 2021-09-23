@@ -11,8 +11,9 @@ class HttpRequestApi(http.Controller):
 
     @http.route('/api/order/create', auth='public', type='json', csrf=False)
     def order_add_order(self, **kw):
-        token_id = request.httprequest.headers.get('token',False)
-        invoice_token = request.env['ir.config_parameter'].sudo().get_param('invoice_api_integration.invoice_token', False)
+        token_id = request.httprequest.headers.get('token', False)
+        invoice_token = request.env['ir.config_parameter'].sudo().get_param('invoice_api_integration.invoice_token',
+                                                                            False)
         if (invoice_token or token_id) and token_id != invoice_token:
             return {
                 "isSubmitted": True,
@@ -45,32 +46,51 @@ class HttpRequestApi(http.Controller):
                     clientID = partner_obj.create(partner_vals).id
 
             for line in items_lines:
+                product_id = request.env['product.product'].sudo().search(
+                    [('product_type', '=', line.get('Item_Category'))], limit=1)
+                analytic_account_id = request.env['account.analytic.account'].sudo().search(
+                    [('product_type', '=', line.get('Item_Category'))], limit=1)
                 vals = (0, 0, {
                     'name': line.get('Item_Name'),
-                    'product_id': request.env['product.product'].sudo().search(
-                        [('product_type', '=', line.get('Item_Category'))], limit=1).id,
-                    'analytic_account_id': request.env['account.analytic.account'].sudo().search(
-                        [('product_type', '=', line.get('Item_Category'))], limit=1).id,
+                    'product_id': product_id.id if product_id else False,
+                    'analytic_account_id': analytic_account_id.id if analytic_account_id else False,
                     'account_id': account_id.id,
                     'quantity': 1,
                     'price_unit': line.get('Price'),
                 })
                 lines.append(vals)
-
-            tax_value = (0, 0, {
-                'product_id': request.env['product.product'].sudo().search(
-                    [('product_type', '=', 'tax')], limit=1).id,
-                'account_id': account_id.id,
-                'quantity': 1,
-                'tax_ids': [(6, 0, [tax_id.id])],
-                'price_unit': kw.get('TAX'),
-            })
-            lines.append(tax_value)
+            if kw.get('TAX', False):
+                tax_value = (0, 0, {
+                    'product_id': request.env['product.product'].sudo().search(
+                        [('product_type', '=', 'tax')], limit=1).id,
+                    'account_id': account_id.id,
+                    'quantity': 1,
+                    'tax_ids': [(6, 0, [tax_id.id])],
+                    'price_unit': kw.get('TAX'),
+                })
+                lines.append(tax_value)
+            if kw.get('Shipping_Fees', False):
+                tax_value = (0, 0, {
+                    'product_id': request.env['product.product'].sudo().search(
+                        [('product_type', '=', 'shipping')], limit=1).id,
+                    'account_id': account_id.id,
+                    'quantity': 1,
+                    'price_unit': kw.get('Shipping_Fees'),
+                })
+                lines.append(tax_value)
+            if kw.get('Service_Charge', False):
+                tax_value = (0, 0, {
+                    'product_id': request.env['product.product'].sudo().search(
+                        [('product_type', '=', 'charge')], limit=1).id,
+                    'account_id': account_id.id,
+                    'quantity': 1,
+                    'price_unit': kw.get('Service_Charge'),
+                })
+                lines.append(tax_value)
 
             order_val = {
                 "partner_id": clientID,
-                "team_id": team_id.id,
-                "user_id": team_id.user_id.id,
+                "team_id": team_id.id if team_id else False,
                 "journal_id": journal_id.id,
                 "invoice_status": 'wait',
                 "move_type": 'out_invoice',
@@ -92,7 +112,7 @@ class HttpRequestApi(http.Controller):
                     "model": {
                         'invoice': order_id.invoice_ref,
                         'client': order_id.partner_id.name,
-                        'total': round(order_id.amount_total,2)
+                        'total': round(order_id.amount_total, 2)
                     }}
         except Exception as err:
             return {
