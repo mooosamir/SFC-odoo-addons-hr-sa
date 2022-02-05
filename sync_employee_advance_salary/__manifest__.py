@@ -9,8 +9,8 @@
     'summary': 'Employee request for advance salary.',
     'description': """Workflow of Employee request for advance salary.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'www.synconics.com',
+    'author': 'erp-babk.',
+    'website': 'http://www.erp-bank.com',
     'depends': ['account',
                 'hr_payroll',
                 # 'sync_hr_payroll',

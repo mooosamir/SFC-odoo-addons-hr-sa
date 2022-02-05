@@ -62,8 +62,8 @@
                         <page string="Account Information" states="paid">
                             <group>
                                 <group>
-                                    <field name="payment_entry_id"/>
-                                    <!-- <field name="payment_id"/> -->
+                                    <field name="payment_entry_id" readonly="1"/>
+                                     <field name="partner_id" readonly="1"/>
                                     <field name="paid_date"/>
                                 </group>
                                 <group>

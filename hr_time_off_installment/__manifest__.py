@@ -7,13 +7,14 @@
     'description': """
        HR Time off Installment
     """,
-    'author': "Eman Ahmed",
+    'author': "erp-bank",
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'depends': [
-        'base','hr','hr_contract','hr_holidays','portal','mail','saudi_hr_leaves_management','saudi_hr_contract','saudi_hr'
+        'base','hr','hr_contract','hr_holidays','portal','mail','hr_work_entry_contract','sync_employee_advance_salary'
     ],
     'data': [
+        'data/demo.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
         'data/installment_method_data.xml',

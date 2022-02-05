@@ -40,7 +40,7 @@ class HrLoan(models.Model):
     duration = fields.Integer('Payment Duration(Months)', track_visibility='onchange', copy=False)
     deduction_amount = fields.Float('Deduction Amount', digits='Account', copy=False)
     employee_id = fields.Many2one('hr.employee', 'Employee', required=True, default=lambda self: self.env['hr.employee'].get_employee())
-    branch_id = fields.Many2one('res.branch', 'Office', readonly=True, related='employee_id.branch_id', store=True)
+    # branch_id = fields.Many2one('res.branch', 'Office', readonly=True, related='employee_id.branch_id', store=True)
     loan_type = fields.Selection([('salary', 'Loan Against Salary'), ('service', 'Loan Against Service')], string="Loan Type", required=True, default='salary')
     description = fields.Text('Purpose For Loan', required=True)
     department_id = fields.Many2one('hr.department', string="Department", related='employee_id.department_id', store=True)
@@ -61,7 +61,8 @@ class HrLoan(models.Model):
     amount_to_pay = fields.Float('Amount to Pay', compute='_calculate_amounts', digits='Account',
                                  track_visibility='onchange')
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=False,
-                                 default=lambda self: self.env.user.company_id)
+                                 default=lambda self: self.env.company)
+    partner_id = fields.Many2one('res.partner', string='partner')
     approved_by = fields.Many2one('res.users', 'Approved by', readonly=True, copy=False)
     refused_by = fields.Many2one('res.users', 'Refused by', readonly=True, copy=False)
     approved_date = fields.Datetime(string='Approved on', readonly=True, copy=False)
@@ -81,6 +82,15 @@ class HrLoan(models.Model):
     move_id = fields.Many2one('account.move', 'Accounting Entry', readonly=True, copy=False)
 
     journal_entry_count=fields.Integer(compute='_journal_entry_count')
+
+
+    @api.model
+    def default_get(self, fields):
+        rec = super(HrLoan, self).default_get(fields)
+        if 'company_id' in rec:
+            rec['emp_account_id'] = self.env['res.company'].browse(rec['company_id']).loan_account_id.id
+        return rec
+
 
     @api.depends('move_id')
     def _journal_entry_count(self):
@@ -153,6 +163,7 @@ class HrLoan(models.Model):
             contract = self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id), ('state', '=', 'open')], limit=1)
             self.analytic_account_id = contract and contract.analytic_account_id.id or False
             self.analytic_tag_ids = contract and [(6, 0, contract.analytic_tag_ids.ids)] or False
+            self.partner_id=self.employee_id.address_home_id
 
     @api.model
     def create(self, values):
@@ -182,6 +193,9 @@ class HrLoan(models.Model):
         """
         if not self.loan_amount or self.loan_amount < 0:
             raise UserError(_("Please enter proper value for Loan Amount & Loan Interest"))
+        loan_limit=self.employee_id.contract_id.total_salary * self.company_id.maximum_amount_loan/100
+        if self.loan_amount > loan_limit :
+            raise UserError(_("Please enter proper value for Loan Amount in limit %s")%(('{:.2f}').format(loan_limit)))
         if self.emi_based_on == 'duration':
             if not self.duration or self.duration < 0:
                 raise UserError(_("Please enter proper value for Payment Duration"))
@@ -249,7 +263,7 @@ class HrLoan(models.Model):
                 'account_id': debit_account_id,
                 'analytic_account_id': analytic_account_id or False,
                 'analytic_tag_ids': [(6, 0, loan.analytic_tag_ids.ids)] or False,
-                'branch_id': loan.branch_id.id or False,
+                'partner_id': loan.partner_id.id or False,
                 'journal_id': journal_id,
                 'date': timenow,
                 'debit': amount > 0.0 and amount or 0.0,
@@ -261,13 +275,13 @@ class HrLoan(models.Model):
                 'analytic_account_id': analytic_account_id or False,
                 'analytic_tag_ids': [(6, 0, loan.analytic_tag_ids.ids)] or False,
                 'journal_id': journal_id,
-                #'branch_id': loan.branch_id.id or False,
+                'partner_id': loan.partner_id.id or False,
                 'date': timenow,
                 'debit': amount < 0.0 and -amount or 0.0,
                 'credit': amount > 0.0 and amount or 0.0,
             }
             vals = {
-                'branch_id': loan.branch_id.id or False,
+                # 'branch_id': loan.branch_id.id or False,
                 'ref': reference,
                 'journal_id': journal_id,
                 'date': timenow,

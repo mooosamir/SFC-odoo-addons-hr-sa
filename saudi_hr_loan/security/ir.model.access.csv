@@ -12,3 +12,4 @@ access_hr_skip_installment_manager,hr.skip.installment.manager,model_hr_skip_ins
 access_hr_loan_operation_employee,hr.loan.operation.employee,model_hr_loan_operation,base.group_user,1,1,1,0
 access_hr_loan_operation_officer,hr.loan.operation.officer,model_hr_loan_operation,hr.group_hr_user,1,1,1,0
 access_hr_loan_operation_manager,hr.loan.operation.manager,model_hr_loan_operation,hr.group_hr_manager,1,1,1,1
+access_freeze_employee_loan,freeze_employee_loan,model_freeze_employee_loan,,1,1,1,1
