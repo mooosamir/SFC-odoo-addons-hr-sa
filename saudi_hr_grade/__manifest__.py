@@ -6,8 +6,8 @@
     'summary': """ HR Grade""",
     'description': """
         Job position wise Employee Grading details.""",
-    'author': 'erp-bank.',
-    'website': 'http://www.erp-bank.com',
+    'author': 'ERP-Bank',
+    'website': 'www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

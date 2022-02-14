@@ -45,7 +45,7 @@
                             <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="loan_id" options="{'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="department_id"  attrs="{'invisible': [('employee_id', '=', False)]}"/>
-<!--                            <field name="branch_id" groups="multi_branches.group_multi_branch"/>-->
+                            <field name="branch_id" groups="branch.group_multi_branch"/>
                             <field name="company_id"  attrs="{'readonly':[('state','!=','draft')]}"
                                    options="{'no_create': True}" groups="base.group_multi_company"/>
                         </group>

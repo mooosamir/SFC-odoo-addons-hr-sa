@@ -33,41 +33,24 @@ class CreateJournalEntry(models.TransientModel):
         res = super(CreateJournalEntry, self).default_get(default_fields)
         data = self.env['timeoff.installment'].browse(self._context.get('active_ids', []))
         for record in data:
-             res.update({'partner_id':record.employee_id.address_home_id.id,'amount':record.total_due,'date':record.date,'debit_account_id':record.installment_calculation_method.time_off_debit_id.id})
+             res.update({'partner_id':record.employee_id.user_partner_id.id,'amount':record.total_due,'date':record.date,'debit_account_id':record.installment_calculation_method.time_off_debit_id.id})
         return res
 
     def action_create_journal_entry(self):
         account_move_obj = self.env['account.move']
-        method=self.installment.installment_calculation_method
         entry=account_move_obj.create({'ref': self.installment.name,
                                      'journal_id': self.journal_id.id,
                                      'installment': self.installment.id,
                                      'date': self.date,
                                      'line_ids': [(0, 0, {
-                                         'name':'Total Due', 'account_id': self.credit_account_id.id,
+                                         'name': self.installment.name, 'account_id': self.credit_account_id.id,
                                          'partner_id': self.partner_id.id,
-                                         'credit': self.installment.total_due, 'debit':0.0, 'date_maturity': self.date,
+                                         'credit': self.amount, 'debit':0.0, 'date_maturity': self.date,
 
-                                     }),(0, 0, {
-                                         'name':'Deduction Value', 'account_id': method.other_deductions_credit_id.id,
-                                         'partner_id': self.partner_id.id,
-                                         'credit': self.installment.deduction_value, 'debit':0.0, 'date_maturity': self.date,
-
-                                     }),
-                                    (0, 0, {
-                                         'name':'Due Amount', 'account_id': self.debit_account_id.id,
-                                        'partner_id': self.partner_id.id,
-                                         'credit':0.0, 'debit': self.installment.due_amount, 'date_maturity': self.date,
                                      }), (0, 0, {
-                                         'name':'Ticket Value', 'account_id': method.ticket_debit_id.id,
-                                          'partner_id': self.partner_id.id,
-                                         'credit':0.0, 'debit': self.installment.ticket_value, 'date_maturity': self.date,
-                                     }), (0, 0, {
-                                         'name':'Additional Value', 'account_id': method.other_allowances_debit_id.id,
-                                         'partner_id': self.partner_id.id,
-                                         'credit':0.0, 'debit': self.installment.additional_value, 'date_maturity': self.date,
-                                     })
-                                    ]})
+                                         'name': self.installment.name, 'account_id': self.debit_account_id.id,
+                                         'credit':0.0, 'debit': self.amount, 'date_maturity': self.date,
+                                     })]})
         entry.action_post()
 
         if self.installment.installment_type == 'time_off_request':

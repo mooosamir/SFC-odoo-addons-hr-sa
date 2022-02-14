@@ -5,10 +5,6 @@ from odoo import models, api, fields, _
 from odoo.exceptions import UserError, ValidationError
 from datetime import datetime, timedelta
 
-class EmployeeAdvanceSalary(models.Model):
-    _inherit = "hr.advance.salary"
-    timeoff_installment = fields.Many2one('timeoff.installment')
-
 
 class InstallmentCalculationMethod(models.Model):
     _name = "installment.calculation.method"
@@ -20,13 +16,9 @@ class InstallmentCalculationMethod(models.Model):
     company_id = fields.Many2one('res.company', string='Company',readonly=True,default=lambda self: self.env.company)
     time_off_debit_id=fields.Many2one('account.account',required=True,tracking=2)
     time_off_credit_id=fields.Many2one('account.account',required=True,tracking=3)
-    ticket_debit_id=fields.Many2one('account.account',required=True,tracking=2)
-    ticket_credit_id=fields.Many2one('account.account',required=True,tracking=3)
-    other_allowances_debit_id=fields.Many2one('account.account',required=True,tracking=2)
-    other_allowances_credit_id=fields.Many2one('account.account',required=True,tracking=3)
-    other_deductions_debit_id=fields.Many2one('account.account',required=True,tracking=2)
-    other_deductions_credit_id=fields.Many2one('account.account',required=True,tracking=3)
     installment_method_ids=fields.Many2many('method.line')
+
+
 
 class MethodLine(models.Model):
     _name = "method.line"
@@ -81,7 +73,6 @@ class TimeoffInstallment(models.Model):
     installment_calculation_method=fields.Many2one('installment.calculation.method',required=True,readonly=True,states={'draft': [('readonly', False)]})
 
     due_amount=fields.Float(compute='_get_due_amount',store=True)
-    ticket_value=fields.Float(readonly=True,states={'draft': [('readonly', False)]})
     additional_value=fields.Float(readonly=True,states={'draft': [('readonly', False)]})
     deduction_value=fields.Float(readonly=True,states={'draft': [('readonly', False)]})
     total_due=fields.Float(compute='_get_total_due',store=True)
@@ -89,7 +80,6 @@ class TimeoffInstallment(models.Model):
         ('draft','Draft'),
         ('confirm','Confirm'),
         ('validate','Validate'),
-        ('create_advance','Advance Salary Created'),
         ('cancel','Cancel'),
     ],default='draft')
 
@@ -115,32 +105,6 @@ class TimeoffInstallment(models.Model):
             'context': {'create':False}
         }
 
-    advance_salary_ids=fields.One2many('hr.advance.salary','timeoff_installment')
-    advance_salary_count=fields.Integer(compute='_advance_salary_count')
-
-    @api.depends('advance_salary_ids')
-    def _advance_salary_count(self):
-        for rec in self:
-            rec.advance_salary_count=len(rec.advance_salary_ids)
-
-
-    def action_view_advance_salary(self):
-        advance_salary=self.advance_salary_ids.ids
-        return {
-            'name': _("Advance Salary"),
-            'view_mode': 'tree,form',
-            'views': False,
-            'res_model': 'hr.advance.salary',
-            'type': 'ir.actions.act_window',
-            'domain':[('id','in',advance_salary)],
-            'nodestroy': True,
-            'context': {'create':False}
-        }
-
-    def create_advance_salary(self):
-        for rec in self:
-            self.env['hr.advance.salary'].create({'timeoff_installment':rec.id,'employee_id':rec.employee_id.id,'reason':'Advance Salary Request From Installment'})
-            rec.write({'state':'create_advance'})
 
 
 
@@ -159,10 +123,10 @@ class TimeoffInstallment(models.Model):
             number_of_days_allocation=sum(all.number_of_days for all in allocation)
             rec.balance=number_of_days_allocation-time_off_days
 
-    @api.depends('additional_value','deduction_value','due_amount','ticket_value')
+    @api.depends('additional_value','deduction_value','due_amount')
     def _get_total_due(self):
         for rec in self:
-            rec.total_due=rec.due_amount + rec.additional_value + rec.ticket_value - rec.deduction_value
+            rec.total_due=rec.due_amount + rec.additional_value - rec.deduction_value
 
 
     @api.depends('installment_calculation_method','number_of_days','contract_id','time_off_days')

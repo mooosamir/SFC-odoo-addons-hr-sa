@@ -28,7 +28,7 @@ class HrLoanOperation(models.Model):
                               required=True, track_visibility='onchange')
     employee_id = fields.Many2one('hr.employee', 'Employee', required=True, track_visibility='onchange', domain=lambda self: self._get_employee_domain())
     department_id = fields.Many2one('hr.department', string="Department", related='employee_id.department_id', store=True)
-    # branch_id = fields.Many2one('res.branch', 'Office', readonly=True, related='employee_id.branch_id', store=True)
+    branch_id = fields.Many2one('res.branch', 'Office', readonly=True, related='employee_id.branch_id', store=True)
     effective_date = fields.Date('Effective Date', default=fields.Date.today, track_visibility='onchange')
     current_loan_amount = fields.Float('Current Loan Amount', related='loan_id.loan_amount', readonly=True)
     amount_to_pay = fields.Float('Amount to Pay', related='loan_id.amount_to_pay', readonly=True)
@@ -196,7 +196,7 @@ class HrLoanOperation(models.Model):
                     'date': timenow,
                     'analytic_account_id': loan.analytic_account_id.id or False,
                     'analytic_tag_ids': [(6, 0, loan.analytic_tag_ids.ids)] or False,
-                    # 'branch_id': loan.branch_id.id or False,
+                    'branch_id': loan.branch_id.id or False,
                     'debit': amount > 0.0 and amount or 0.0,
                     'credit': amount < 0.0 and -amount or 0.0,
                 }
@@ -205,7 +205,7 @@ class HrLoanOperation(models.Model):
                     'account_id': credit_account_id,
                     'analytic_account_id': loan.analytic_account_id.id or False,
                     'analytic_tag_ids': [(6, 0, loan.analytic_tag_ids.ids)] or False,
-                    # 'branch_id': loan.branch_id.id or False,
+                    'branch_id': loan.branch_id.id or False,
                     'journal_id': journal_id,
                     'date': timenow,
                     'debit': amount < 0.0 and -amount or 0.0,
@@ -214,7 +214,7 @@ class HrLoanOperation(models.Model):
                 vals = {
                     'name': loan_name,
                     'narration': loan_name,
-                    # 'branch_id': loan.branch_id.id or False,
+                    'branch_id': loan.branch_id.id or False,
                     'ref': reference,
                     'journal_id': journal_id,
                     'date': timenow,

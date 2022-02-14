@@ -11,7 +11,7 @@
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'depends': [
-        'base','hr','hr_contract','hr_holidays','portal','mail','hr_work_entry_contract','sync_employee_advance_salary'
+        'base','hr','hr_contract','hr_holidays','portal','mail','hr_work_entry_contract'
     ],
     'data': [
         'data/demo.xml',

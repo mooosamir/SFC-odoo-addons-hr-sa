@@ -22,11 +22,6 @@ class HRContract(models.Model):
     HRA = fields.Float(string='House Rent Allowance', tracking=True, help="HRA of employee (25% of basic)") # , compute='_get_amount'
     TA = fields.Float(string='Transport Allowance', tracking=True,
                       help="Transport Allowance of employee (10% of Basic)")
-    allowance1 = fields.Float(tracking=True)
-    allowance2 = fields.Float(tracking=True)
-    allowance3 = fields.Float(tracking=True)
-    allowance4 = fields.Float(tracking=True)
-    total_salary = fields.Float(compute='_get_total_salary',store=True,tracking=True)
     before_notification_day = fields.Integer('Before Notification Days (End Date)', default=60)
     early_notification_day = fields.Integer(string='Early Notification Days (End Date)', default=15)
     trial_notification_day_before = fields.Integer('Before Notification Days (Trial End Date)', default=15)
@@ -38,11 +33,16 @@ class HRContract(models.Model):
             if rec.wage <= 0.0:
                 raise UserError('Please define Wage must be greater than 0.0!')
 
-    @api.depends('wage','allowance1','allowance2','allowance3','allowance4')
-    def _get_total_salary(self):
-        for contract in self:
-            contract.total_salary = contract.wage + contract.allowance1 + contract.allowance2 + contract.allowance3 + contract.allowance4
-
+    # @api.depends('wage')
+    # def _get_amount(self):
+    #     """
+    #         set the values of Basic, HRA, TA if wage is greater than 0.
+    #     """
+    #     for contract in self:
+    #         if contract.wage > 0:
+    #             contract.basic = contract.wage / 1.35
+    #             contract.HRA = contract.basic * 0.25
+    #             contract.TA = contract.basic * 0.1
 
     @api.onchange('wage')
     def _onchange_wage(self):
@@ -50,7 +50,6 @@ class HRContract(models.Model):
             self.basic = self.wage / 1.35
             self.HRA = self.basic * 0.25
             self.TA = self.basic * 0.1
-
 
     # ===========================================================================
     # Removed code due to not accurance based on _get_total_members
