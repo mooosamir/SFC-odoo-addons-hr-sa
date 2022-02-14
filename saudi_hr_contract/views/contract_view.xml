@@ -18,16 +18,16 @@
 <!--                <field name="early_notification_day"/>-->
 <!--                <field name="trial_notification_day_before"/>-->
 <!--            </xpath>-->
-<!--            <xpath expr="//page[@name='information']//group[@name='salary_and_advantages']" position="inside">-->
-<!--                <field name="basic"/>-->
-<!--                <field name="HRA"/>-->
-<!--                <field name="TA"/>-->
-<!--                <field name="allowance1"/>-->
-<!--                <field name="allowance2"/>-->
-<!--                <field name="allowance3"/>-->
-<!--                <field name="allowance4"/>-->
-<!--                <field name="total_salary"/>-->
-<!--            </xpath>-->
+            <xpath expr="//page[@name='information']//group[@name='salary_and_advantages']" position="inside">
+                <field name="basic"/>
+                <field name="HRA"/>
+                <field name="TA"/>
+                <field name="allowance1"/>
+                <field name="allowance2"/>
+                <field name="allowance3"/>
+                <field name="allowance4"/>
+                <field name="total_salary"/>
+            </xpath>
             <xpath expr="//page[@name='information']" position="inside">
                 <group name="other_allowance" string="Other Allowances">
                     <group>
