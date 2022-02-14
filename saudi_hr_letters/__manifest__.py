@@ -7,8 +7,8 @@
     'description': """
         Letters are Bank Transfer, Open account, Employeement Report, Family Iqama, Mroor Report, etc.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'version': '1.0',
     'sequence': 20,
     'category': 'HR',

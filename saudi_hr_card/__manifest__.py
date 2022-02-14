@@ -7,8 +7,8 @@
     'description': """
         Employee can put request for their business card, ID card and access card. HR Officer can print the ID card and Business card.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

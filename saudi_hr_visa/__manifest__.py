@@ -8,8 +8,8 @@
         Manage all employee's visa request for any business or personal trip.
         Behalf of employee, HR department will manage visa process with Government/Visa council.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

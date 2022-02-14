@@ -8,8 +8,8 @@
         The General Organization for Social Insurance (GOSI) is a Saudi Arabian government agency concerned with social insurance in the country.
         Calculations for the GOSI are based on earning of an employee, employee's nationality and deduct the amount from employee payslip.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

@@ -6,7 +6,7 @@
     'summary': 'Employee Salary, Employees Details',
     'description': """
         Generate Warning and send individual or group warning mail""",
-    'author': 'Synconics Technologies Pvt. Ltd.',
+    'author': 'ERP-Bank',
     'website': 'www.synconics.com',
     'category': 'Human Resources',
     'version': '1.0',

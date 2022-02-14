@@ -7,8 +7,8 @@
     'description': """
         Create new Module for Employee Attendance Report
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'license': 'OPL-1',
     'category': 'HR',
     'version': '1.0',

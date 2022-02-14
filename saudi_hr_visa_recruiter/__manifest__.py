@@ -8,8 +8,8 @@
         Employee visa recruiter request and Expense calculation
         Manager can put the visa request, HR Officer approve it and Expense Manager calculate the expense.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

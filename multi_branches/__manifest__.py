@@ -11,7 +11,7 @@
         Also maintain User and Manager level access rights.
     """,
     'category': 'Sales/Accounting',
-    'author': 'Synconics Technologies Pvt. Ltd.',
+    'author': 'ERP-Bank',
     'website': 'www.synconics.com',
     'depends': ['sale_management', 'purchase', 'sale_stock', 'crm', 'stock_account'],
     'data': [

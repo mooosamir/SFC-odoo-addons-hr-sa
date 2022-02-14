@@ -5,8 +5,8 @@
     'summary': "Saudi HR Annual Leaving",
     'description': """
         """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

@@ -22,8 +22,8 @@ EOS amount
 
     """,
 
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

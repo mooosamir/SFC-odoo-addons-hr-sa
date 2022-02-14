@@ -7,8 +7,8 @@
     'description': """
         Middle East Human Resource Recruitment
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',
     'sequence': 20,

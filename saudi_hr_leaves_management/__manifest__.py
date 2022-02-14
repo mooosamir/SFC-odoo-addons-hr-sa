@@ -8,8 +8,8 @@
     'description': """
      Holidays Management
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'images': [],
     'depends': [
         'hr_holidays', 'hr_fiscal_year',

@@ -9,8 +9,8 @@
         HR Manager will approve employee request & Admin Manager will book tickets for employee.
         If booking is related to employee's personal work Admin Manager add employee contribution for expense. Which is directly deducted from employee's current month payslip (Salary).
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

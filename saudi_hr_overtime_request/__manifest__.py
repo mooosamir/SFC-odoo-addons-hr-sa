@@ -7,8 +7,8 @@
     'description': """
         To complete some works on urgency basis or for any other reasons, Manager can send overtime request to specific group of employees and employee can accept / reject that request individually based on their convenience.
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'version': '1.0',
     'sequence': 20,
     'category': 'HR',

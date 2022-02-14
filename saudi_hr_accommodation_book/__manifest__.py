@@ -12,8 +12,8 @@
         Basic Flow of this module like this:
         New -> Confirm(Employee) -> Approve(HR Officer) -> Book(Admin Manager)add accommodation details -> Generate Expense(Admin Manager) -> Stay Over(Admin Manager)
         """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

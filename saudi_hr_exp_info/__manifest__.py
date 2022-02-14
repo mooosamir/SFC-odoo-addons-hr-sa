@@ -7,8 +7,8 @@
     'description': """
         Employee Profile Information About Experience, Qualification And Certification
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

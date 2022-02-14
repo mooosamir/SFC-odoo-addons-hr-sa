@@ -11,8 +11,8 @@
         In manpower plan line there is the details about employee and calculate employees based on current employee,
         leaving employees and critical roles
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

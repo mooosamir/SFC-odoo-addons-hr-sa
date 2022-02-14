@@ -7,8 +7,8 @@
     'description': """
         Job requisition will be created according to job positions and here number of employees will be defined,
     """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',

@@ -7,8 +7,8 @@
     'description': """
         Allow specific user to perform 'HR Admin' related works and also this kind of users have no access to see other employee's records
         """,
-    'author': 'Synconics Technologies Pvt. Ltd.',
-    'website': 'http://www.synconics.com',
+    'author': 'ERP-Bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',
