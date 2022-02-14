@@ -5,7 +5,7 @@
     'name': "HR Clearance",
     'summary': """ HR Clearance """,
     'description': """HR Clearance """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

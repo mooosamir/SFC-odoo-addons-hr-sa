@@ -29,7 +29,7 @@
                         <group>
                             <field name="employee_id"  placeholder='Select Employee...' attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="department_id" readonly="1" attrs="{'invisible':[('department_id', '=', False)]}"/>
-                            <field name="location" attrs="{'invisible': [('location', '=', False)]}"/>
+<!--                            <field name="location" attrs="{'invisible': [('location', '=', False)]}"/>-->
                             <field name="line_manager_id" readonly="1" attrs="{'invisible':[('line_manager_id', '=', False)]}"/>
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                         </group>

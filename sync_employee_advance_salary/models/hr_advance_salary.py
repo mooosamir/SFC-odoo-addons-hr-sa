@@ -29,6 +29,7 @@ class EmployeeAdvanceSalary(models.Model):
     paid_date = fields.Datetime(string='Paid Date', readonly=True)
     paid_by = fields.Many2one('res.users', string='Paid By', readonly=True)
     company_id = fields.Many2one('res.company', related='employee_id.company_id', string='Company', readonly=True)
+    partner_id = fields.Many2one('res.partner', string='partner')
     # payment_id = fields.Many2one('account.payment', string='Payment', readonly=True)
     payment_entry_id = fields.Many2one('account.move', string='Payment Entry')
     paid_amount = fields.Float(string='Paid Amount', readonly=True, copy=False)

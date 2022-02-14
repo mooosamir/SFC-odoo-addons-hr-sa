@@ -75,7 +75,7 @@ class HrEmployeeClearance(models.Model):
     employee_name = fields.Char(string='Name', related='employee_id.name')
     seniority_date = fields.Date('Seniority Date', default=time.strftime('%Y-%m-%d'))
     last_working_day = fields.Date('Last Day of Work', related='employee_id.date_of_leave', store=True)
-    location = fields.Many2one('res.branch', 'Location', readonly="True", related='employee_id.branch_id', store=True)
+    # location = fields.Many2one('res.branch', 'Location', readonly="True", related='employee_id.branch_id', store=True)
     company_id = fields.Many2one('res.company', string='Company', readonly=True, default=lambda self: self.env.user.company_id)
     passport_no = fields.Char('Passport No', readonly="True")
     department_id = fields.Many2one('hr.department', 'Department', related='employee_id.department_id', store=True)

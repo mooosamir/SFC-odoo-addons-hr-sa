@@ -6,17 +6,19 @@
     'description': """
         Employee Loan Management also manage the installment of loan.
     """,
-    'author': 'ERP-Bank',
-    'website': 'www.erp-bank.com',
+    'author': 'erp-bank.',
+    'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',
     'depends': ['hr_payroll',
+                'mail',
         # 'sync_hr_payroll',
                 'saudi_hr',
-                # 'saudi_hr_contract'
+                'saudi_hr_contract',
                 'hr_contract',
-                'branch'
+                'loan_configration'
+
                 ],
     'data': [
         'security/ir.model.access.csv',
