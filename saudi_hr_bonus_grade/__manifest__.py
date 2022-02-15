@@ -7,7 +7,7 @@
     'description': """
         Once Employee bonus process will be completed grade will be updated on employee's profile.
      """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

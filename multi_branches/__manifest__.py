@@ -11,8 +11,8 @@
         Also maintain User and Manager level access rights.
     """,
     'category': 'Sales/Accounting',
-    'author': 'ERP-Bank',
-    'website': 'www.synconics.com',
+    'author': 'erp-bank.',
+    'website': 'http://www.erp-bank.com',
     'depends': ['sale_management', 'purchase', 'sale_stock', 'crm', 'stock_account'],
     'data': [
         'security/multi_branches_security.xml',

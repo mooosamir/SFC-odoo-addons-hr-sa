@@ -72,6 +72,7 @@
                                 <field name="type" required="1"/>
                                 <field name="payslip_id"/>
                                 <field name="remaining_leave"/>
+                                <field name="annual_leave_amount"/>
                                 <field name="duration_years"/>
                                 <field name="duration_months"/>
                                 <field name="duration_days"/>
@@ -79,10 +80,13 @@
                             <group>
                                 <field name="calc_year" invisible ="1"/>
                                 <field name="total_eos"/>
-                                <field name="annual_leave_amount"/>
+                                <field name="ticket_value"/>
+                                <field name="other_allowance"/>
+                                <field name="remaining_amount_loan"/>
                                 <field name="current_month_salary"/>
                                 <field name="others"/>
                                 <field name="payable_eos" class="oe_subtotal_footer_separator" widget='monetary'/>
+                                <field name="payment_method"/>
                             </group>
                         </group>
                         <group>
@@ -98,6 +102,16 @@
                                 <field name="journal_id" widget="selection" domain="[('type', '=', 'purchase')]"/>
                                 <field name="account_move_id"/>
                             </group>
+                            <group>
+                                <field name="ticket_account_id" options="{'no_create_edit': True}" required="1" readonly="1" force_save="1"
+                                       domain="[('user_type_id.name', '=', 'Expenses'), ('company_id', '=',company_id)]"/>
+                                <field name="loan_account_id" required="1" options="{'no_create_edit': True}" readonly="1" force_save="1"
+                                       domain="[('user_type_id.name', '=', 'Current Assets'), ('company_id', '=',company_id)]" />
+                                <field name="other_deduction_account_id" required="1" options="{'no_create_edit': True}" readonly="1" force_save="1"/>
+                                <field name="other_allowance_account_id" required="1" options="{'no_create_edit': True}" readonly="1" force_save="1"/>
+                                <field name="remaining_leave_account_id"  required="1" string="Annual Leave Account" force_save="1" readonly="1" options="{'no_create_edit': True}"/>
+                            </group>
+
                         </group>
                     </page>
                     <page string="Extra Information" groups="base.group_no_one">
@@ -126,16 +140,16 @@
         </field>
     </record>
 
-    <record id="saudi_hr_eos_view_hr_job_form" model="ir.ui.view">
-        <field name="name">hr.job.form</field>
-        <field name="model">hr.job</field>
-        <field name="inherit_id" ref="hr.view_hr_job_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='department_id']" position="after">
-                <field name="annual_leave_rate"/>
-            </xpath>
-        </field>
-    </record>
+<!--    <record id="saudi_hr_eos_view_hr_job_form" model="ir.ui.view">-->
+<!--        <field name="name">hr.job.form</field>-->
+<!--        <field name="model">hr.job</field>-->
+<!--        <field name="inherit_id" ref="hr.view_hr_job_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='department_id']" position="after">-->
+<!--                <field name="annual_leave_rate"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <record id="view_hr_employee_eos_filter" model="ir.ui.view">
         <field name="name">hr.employee.eos.filter</field>

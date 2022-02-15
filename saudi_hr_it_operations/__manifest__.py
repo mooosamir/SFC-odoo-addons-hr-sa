@@ -10,13 +10,13 @@
     > Employee De-registrations
     > Employee Excess Card, Visiting Card Templates
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'version': '1.0',
     'sequence': 20,
     'license': 'OPL-1',
     'depends': [
-        'base', 'stock', 'hr_expense_payment', 'saudi_hr', 'hr_maintenance',
+        'base', 'hr_expense_payment', 'saudi_hr', 'hr_maintenance',
     ],
     'data': [
         'data/it_product_data.xml',

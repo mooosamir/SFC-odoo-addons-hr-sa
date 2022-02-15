@@ -12,7 +12,7 @@
         Basic Flow of this module like this:
         New -> Confirm(Employee) -> Approve(HR Officer) -> Book(Admin Manager)add accommodation details -> Generate Expense(Admin Manager) -> Stay Over(Admin Manager)
         """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

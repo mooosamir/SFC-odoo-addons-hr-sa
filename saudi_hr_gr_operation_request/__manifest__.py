@@ -7,7 +7,7 @@
     'description': """
         Manage different operation requests like family visa request changing profession lossing iqama etc.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

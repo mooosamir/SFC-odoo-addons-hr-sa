@@ -7,7 +7,7 @@
     'description': """
         Human Resource Management Vacations
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

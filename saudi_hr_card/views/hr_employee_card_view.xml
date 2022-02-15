@@ -26,8 +26,8 @@
                             <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"
                                    placeholder="Select Employee"/>
                             <field name="department_id" force_save="1"/>
-                            <field name="branch_id" domain="[('company_id', '=', company_id)]"
-                                   groups="multi_branches.group_multi_branch" force_save="1"/>
+<!--                            <field name="branch_id" domain="[('company_id', '=', company_id)]"-->
+<!--                                   groups="multi_branches.group_multi_branch" force_save="1"/>-->
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"
                                    attrs="{'readonly':[('state','!=','draft')]}" force_save="1"/>
                         </group>
@@ -85,7 +85,7 @@
             <tree string="Employee Card">
                 <field name="employee_id"/>
                 <field name="department_id"/>
-                <field name="branch_id" groups="multi_branches.group_multi_branch"/>
+<!--                <field name="branch_id" groups="multi_branches.group_multi_branch"/>-->
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="card_type"/>
                 <field name="requested_date"/>

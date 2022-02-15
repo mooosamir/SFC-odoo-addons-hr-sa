@@ -19,7 +19,7 @@ class EmployeeBonus(models.Model):
     date_of_join = fields.Date(string='Joining Date', readonly=True)
     job_id = fields.Many2one('hr.job', string='Job Position', readonly=True)
     department_id = fields.Many2one('hr.department', readonly=True, string='Department')
-    branch_id = fields.Many2one('res.branch', 'Office', readonly=True)
+    # branch_id = fields.Many2one('res.branch', 'Office', readonly=True)
     company_id = fields.Many2one('res.company', string='Company', readonly=True, default=lambda self: self.env.user.company_id)
     no_of_months = fields.Float(string='Number of Months', help="Total number of months")
     employee_bonus_ids = fields.One2many('employee.bonus.lines', 'employee_bonus_id', ondelete='cascade')
@@ -57,14 +57,14 @@ class EmployeeBonus(models.Model):
         self.date_of_join = False
         self.job_id = False
         self.department_id = False
-        self.branch_id = False
+        # self.branch_id = False
         if self.employee_id:
             self.country_id = self.employee_id.country_id.id
             self.gender = self.employee_id.gender
             self.date_of_join = self.employee_id.date_of_join
             self.job_id = self.employee_id.job_id.id
             self.department_id = self.employee_id.department_id.id
-            self.branch_id = self.employee_id.branch_id.id
+            # self.branch_id = self.employee_id.branch_id.id
 
     def action_set_to_draft(self):
         """
@@ -101,7 +101,7 @@ class EmployeeBonus(models.Model):
                            'date_of_join': employee.date_of_join,
                            'job_id': employee.job_id.id,
                            'department_id': employee.department_id.id,
-                           'branch_id': employee.branch_id.id,
+                           # 'branch_id': employee.branch_id.id,
                            })
         return super(EmployeeBonus, self).create(values)
 
@@ -118,7 +118,7 @@ class EmployeeBonus(models.Model):
                            'date_of_join': employee.date_of_join,
                            'job_id': employee.job_id.id,
                            'department_id': employee.department_id.id,
-                           'branch_id': employee.branch_id.id
+                           # 'branch_id': employee.branch_id.id
                            })
         return super(EmployeeBonus, self).write(values)
 

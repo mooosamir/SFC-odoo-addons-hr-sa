@@ -7,8 +7,8 @@
     'description': """
         HR Leaving
     """,
-    'author': "ERP-Bank",
-    'website': "http://www.erp-bank.com",
+    'author': "Synconics Technologies Pvt. Ltd.",
+    'website': "http://www.synconics.com",
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

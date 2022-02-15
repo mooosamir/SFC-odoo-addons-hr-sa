@@ -24,8 +24,8 @@ class BonusReport(models.TransientModel):
 
     def print_bonus_report(self):
         branch_pool = self.env[self.env.context.get('active_model')]
-        branch_id = self.env.context.get('active_id')
-        branch = branch_pool.browse(branch_id)
+        # branch_id = self.env.context.get('active_id')
+        # branch = branch_pool.browse(branch_id)
         bonus_ids = map(lambda x: x.id, branch.employee_bonus_ids)
 #         bonus_pool = self.env['employee.bonus']
 #         fiscalyear_pool = self.pool.get('account.fiscalyear')
@@ -170,7 +170,7 @@ class BonusReport(models.TransientModel):
                      'Designation': bonus.job_id.name or '',
                      'Function': bonus.department_id.parent_id.name or '',
                      'Sub Function': bonus.department_id.name or '',
-                     'Location': bonus.branch_id.name or '',
+                     # 'Location': bonus.branch_id.name or '',
                      # 'Grade': bonus.grade_id.name or ''
                 }
                 bonus_dict.update({bonus.id: line_dict})

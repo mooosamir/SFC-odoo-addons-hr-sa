@@ -16,6 +16,13 @@ class HrEmployee(models.Model):
     study_id = fields.Many2one('education.study', string='Field of Study', groups="hr.group_hr_user", tracking=True)
     school_id = fields.Many2one('education.school', string='School', groups="hr.group_hr_user", tracking=True)
 
+    city = fields.Char()
+    building_no = fields.Char(string="Building no",help="Building No")
+    district = fields.Char(string="District",  help="District")
+    additional_no = fields.Char(string="Additional no", help="Additional No")
+    street = fields.Char()
+    zip = fields.Char()
+
     @api.depends('birthday')
     def _get_age(self):
         """
@@ -89,7 +96,7 @@ class HrEmployee(models.Model):
                                         ], string='Employment Status', default='active', track_visibility='onchange')
     middle_name = fields.Char(size=64, string='Middle Name')
     last_name = fields.Char(size=64, string='Last Name')
-    code = fields.Char(string='Code', readonly=True)
+    code = fields.Char(string='Code')
     age = fields.Float(compute='_get_age', compute_sudo=True, string="Age", store=False, readonly=True)
     religion = fields.Selection([('muslim', 'Muslim'), ('non-muslim', 'Non Muslim')], 'Religion')
     spouse_number = fields.Char('Spouse Phone Number', size=32)
@@ -98,6 +105,7 @@ class HrEmployee(models.Model):
     ksa_address_id = fields.Many2one('res.partner', 'Address in KSA')
     duration_in_months = fields.Float(compute='_get_months', string='Month(s) in Organization')
     total_service_year = fields.Char(compute='_get_service_year', string="Total Service Year")
+    service_year = fields.Integer(compute='_get_service_year', string="Service Year")
     is_hod = fields.Boolean('Is HOD', help='Head of Department')
     manager = fields.Boolean(string='Is a Manager')
     profession = fields.Char(string='Profession')
@@ -105,10 +113,24 @@ class HrEmployee(models.Model):
     sponsored_by = fields.Selection([('company', 'Company'), ('other', 'Other')], string='Sponsored By',
                                     default="company")
     reference_by = fields.Char(string='Reference By')
+    iqama_number = fields.Char()
+    country_code = fields.Char(related='country_id.code')
 
     _sql_constraints = [
         ('unique_emp_code', 'unique(code)', 'Employee Code must be unique!'),
     ]
+
+    @api.constrains('iqama_number','identification_id')
+    def _onchange_id_iqama(self):
+        for rec in self:
+            if rec.iqama_number !=False :
+                if list(rec.iqama_number)[0] !='2':
+                    raise ValidationError(_('Please start Iqama NO by number 2'))
+
+            if rec.identification_id !=False:
+                if  list(rec.identification_id)[0] !='1':
+                   raise ValidationError(_('Please start Identification NO by number 1'))
+
 
     @api.onchange('date_of_leave')
     def onchange_leave_date(self):
@@ -133,8 +155,11 @@ class HrEmployee(models.Model):
             else:
                 diff = relativedelta(datetime.today(), datetime.strptime(str(self.date_of_join), DEFAULT_SERVER_DATE_FORMAT))
             self.total_service_year = " ".join([str(diff.years), 'Years', str(diff.months), "Months"])
+            self.service_year = diff.years
+
         else:
             self.total_service_year = "0 Years 0 Months"
+            self.service_year = 0
 
     @api.depends('name', 'middle_name', 'last_name')
     def name_get(self):

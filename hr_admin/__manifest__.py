@@ -7,7 +7,7 @@
     'description': """
         Allow specific user to perform 'HR Admin' related works and also this kind of users have no access to see other employee's records
         """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

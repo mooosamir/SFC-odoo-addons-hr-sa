@@ -7,7 +7,7 @@
     'description': """
         Letters are Bank Transfer, Open account, Employeement Report, Family Iqama, Mroor Report, etc.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'version': '1.0',
     'sequence': 20,

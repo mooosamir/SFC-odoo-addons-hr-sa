@@ -8,7 +8,7 @@
         Manage all employee's visa request for any business or personal trip.
         Behalf of employee, HR department will manage visa process with Government/Visa council.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

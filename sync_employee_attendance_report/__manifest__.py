@@ -7,7 +7,7 @@
     'description': """
         Create new Module for Employee Attendance Report
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'license': 'OPL-1',
     'category': 'HR',

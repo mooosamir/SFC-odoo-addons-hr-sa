@@ -7,15 +7,15 @@
     'description': """
         Human Resource Management specific for middle east companies
     """,
-    'author': 'ERP-Bank',
-    'website': 'http://www.erp-bank.com',
+    'author': 'Synconics Technologies Pvt. Ltd.',
+    'website': 'http://www.synconics.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',
     'sequence': 20,
     'depends': ['hr_expense',
                 # 'saudi_hr_groups_configuration',
-                'mail', 'hr_fiscal_year', 'hr_contract'],
+                'mail', 'hr_fiscal_year', 'hr_contract',],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

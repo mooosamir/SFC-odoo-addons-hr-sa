@@ -6,8 +6,8 @@
     'summary': 'Employee Salary, Employees Details',
     'description': """
         Generate Warning and send individual or group warning mail""",
-    'author': 'ERP-Bank',
-    'website': 'www.synconics.com',
+    'author': 'erp-bank.',
+    'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',
     'license': 'OPL-1',

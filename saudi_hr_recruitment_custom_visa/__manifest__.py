@@ -5,7 +5,7 @@
     'name': "Hr Recruitment Custom Visa",
     'summary': """ Hr Recruitment Custom Visa """,
     'description': """ """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

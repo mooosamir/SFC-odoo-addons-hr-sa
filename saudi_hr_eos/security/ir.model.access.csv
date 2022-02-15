@@ -3,3 +3,4 @@ access_hr_employee_eos_user,access_hr_employee_eos_user,model_hr_employee_eos,ba
 access_hr_employee_eos_manager,access_hr_employee_eos_manager,model_hr_employee_eos,hr.group_hr_manager,1,1,1,1
 access_hr_employee_eos_officer,access_hr_employee_eos_officer,model_hr_employee_eos,hr.group_hr_user,1,1,1,1
 access_hr_contract_officer,hr.contractofficer,hr_contract.model_hr_contract,hr.group_hr_user,1,0,0,0
+access_eos_method,eos_method,model_eos_method,,1,1,1,1

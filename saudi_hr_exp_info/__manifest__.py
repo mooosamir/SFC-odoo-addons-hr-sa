@@ -7,7 +7,7 @@
     'description': """
         Employee Profile Information About Experience, Qualification And Certification
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

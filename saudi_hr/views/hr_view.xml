@@ -10,7 +10,7 @@
             </xpath>
             <xpath expr="//field[@name='manager_id']" position="attributes">
                 <attribute name="string">Head of Department</attribute>
-                <attribute name="domain">[('is_hod', '=', True)]</attribute>
+<!--                <attribute name="domain">[('is_hod', '=', True)]</attribute>-->
             </xpath>
         </field>
     </record>
@@ -33,20 +33,28 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="priority">30</field>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='identification_id']" position="after">
+                <field name="country_code" invisible="1"/>
+                <field name="iqama_number" attrs="{'invisible':[('country_code','=','SA')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="attributes">
+                <attribute name="attrs">{'invisible':[('country_code','not in',[False,'SA'])]}</attribute>
+            </xpath>
             <xpath expr="//field[@name='category_ids']" position="replace"/>
             <xpath expr="//div[hasclass('oe_title')]" position="replace"/>
 
             <xpath expr="//group" position="before">
                 <group colspan="4">
                     <div>
-                        <h1>
-                            <field name="code" placeholder="Employee Code" nolabel="1"/>
-                        </h1>
+<!--                        <h1>-->
+<!--                            <field name="code" placeholder="Employee Code" nolabel="1"/>-->
+<!--                        </h1>-->
                         <label for="name" class="oe_edit_only"/>
                         <h1 class="o_row">
                             <field name="name" placeholder="Employee's Name" required="True"/>
                             <field name="middle_name" placeholder="Middle Name"/>
                             <field name="last_name" placeholder="Last Name" required='1'/>
+                            <field name="code" placeholder="Employee Code" nolabel="1"/>
                         </h1>
                         <br/>
                         <h2 class="o_row">
@@ -62,8 +70,23 @@
                 <field name="profession"/>
             </field>
 
-            <xpath expr="//field[@name='job_id']" position="attributes">
-                <attribute name="domain">['|', ('company_id', '=', False), ('company_id', '=', company_id), ('department_id', '=', department_id)]</attribute>
+<!--            <xpath expr="//field[@name='job_id']" position="attributes">-->
+<!--                <attribute name="domain">['|', ('company_id', '=', False), ('company_id', '=', company_id), ('department_id', '=', department_id)]</attribute>-->
+<!--            </xpath>-->
+            <xpath expr="//field[@name='company_id']" position="after">
+                    <label for="street" string="Address"/>
+                    <div class="o_address_format" string="Address AR">
+                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                        <div class="d-flex justify-content-start">
+                            <field name="district" placeholder="District" class="mr-2"/>
+                            <field name="additional_no" placeholder="Additional No" class="mr-2"/>
+                            <field name="building_no" placeholder="Building No"/>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                        <field name="city" placeholder="City" class="o_address_city"/>
+                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                        </div>
+                    </div>
             </xpath>
             <xpath expr="//field[@name='birthday']" position="after">
                 <field name="age"/>
@@ -75,9 +98,12 @@
             <xpath expr="//field[@name='parent_id']" position="attributes">
                 <attribute name="domain">['|', ('company_id', '=', False), ('company_id', '=', company_id), ('manager', '=', True), ('id', '!=', id)]</attribute>
             </xpath>
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="date_of_join" required="1" />
+            </xpath>
             <xpath expr="//field[@name='coach_id']" position="after">
-                <field name="manager" groups="base.group_no_one"/>
-                <field name="is_hod" groups="base.group_no_one"/>
+                <field name="manager" groups="base.group_no_one" invisible="1"/>
+                <field name="is_hod" groups="base.group_no_one" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='country_id']" position="after">
                 <field name="religion"/>
@@ -85,17 +111,17 @@
             </xpath>
             <xpath expr="//group[@name='active_group']" position="before">
                 <group string="Employment">
-                    <field name="date_of_join" required="1" />
                     <field name="date_of_leave"/>
                     <field name="total_service_year"/>
+                    <field name="service_year"/>
                     <field name='employee_status' required="1"/>
                     <field name="sponsored_by"/>
                     <field name="reference_by" attrs="{'invisible':[('sponsored_by', 'not in', ['other'])], 'required': [('sponsored_by', 'in', ['other'])]}"/>
                 </group>
             </xpath>
-            <xpath expr="//field[@name='work_phone']" position="after">
-                <field name="branch_id" domain="[('company_id', '=', company_id)]" groups="multi_branches.group_multi_branch"/>
-            </xpath>
+<!--            <xpath expr="//field[@name='work_phone']" position="after">-->
+<!--                <field name="branch_id" domain="[('company_id', '=', company_id)]" groups="multi_branches.group_multi_branch"/>-->
+<!--            </xpath>-->
             <xpath expr="//field[@name='address_home_id']" position="after">
                 <field name="ksa_address_id" attrs="{'invisible': [('is_saudi','=',True),('country_id','!=',False)]}" groups="hr.group_hr_user"/>
             </xpath>
@@ -147,7 +173,7 @@
                 <filter name="Non-Saudi" string="Non-Saudi" domain="[('is_saudi','=',False)]"/>
             </xpath>
             <xpath expr="//group" position="inside">
-                <filter name="group_office" string="Office" context="{'group_by':'branch_id'}" groups="multi_branches.group_multi_branch"/>
+<!--                <filter name="group_office" string="Office" context="{'group_by':'branch_id'}" groups="multi_branches.group_multi_branch"/>-->
                 <filter name="group_joining_date" string="Joining Date" context="{'group_by':'date_of_join'}"/>
                 <filter name="group_gender" string="Gender" context="{'group_by':'gender'}" groups="hr.group_hr_user"/>
                 <filter name="group_religion" string="Religion" context="{'group_by':'religion'}"/>

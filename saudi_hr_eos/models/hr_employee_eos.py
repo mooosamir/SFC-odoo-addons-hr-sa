@@ -25,7 +25,8 @@ class HrEmployeeEos(models.Model):
             Calculate the payable eos
         """
         for eos_amt in self:
-            eos_amt.payable_eos = (eos_amt.total_eos + eos_amt.current_month_salary + eos_amt.others + eos_amt.annual_leave_amount) or 0.0
+            # eos_amt.payable_eos = (eos_amt.total_eos + eos_amt.current_month_salary + eos_amt.others + eos_amt.annual_leave_amount+eos_amt.ticket_value + eos_amt.other_allowance - eos_amt.remaining_amount_loan) or 0.0
+            eos_amt.payable_eos = (eos_amt.total_eos + eos_amt.annual_leave_amount+eos_amt.ticket_value + eos_amt.other_allowance - eos_amt.others - eos_amt.remaining_amount_loan) or 0.0
 
     name = fields.Char('Description', size=128, required=True, readonly=True, states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]})
     eos_date = fields.Date('Date', index=True, required=True, readonly=True, states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, default=lambda self: datetime.today().date())
@@ -63,6 +64,15 @@ class HrEmployeeEos(models.Model):
     total_eos = fields.Float('Total Award', readonly=True, states={'draft': [('readonly', False)]})
     payable_eos = fields.Float(compute=_calc_payable_eos, string='Total Amount')
     remaining_leave = fields.Float('Remaining Leave')
+    ticket_value = fields.Float('Ticket Value')
+    other_allowance = fields.Float('Other Allowance')
+    remaining_amount_loan =fields.Float(compute='_get_loan',string='Remaining Amount Loan')
+
+    @api.depends('employee_id')
+    def _get_loan(self):
+        for rec in self:
+            loan=self.env['hr.loan'].search([('employee_id','=',rec.employee_id.id),('state','in',['approve','done'])])
+            rec.remaining_amount_loan=sum(l.amount_to_pay for l in loan)
     # account
     journal_id = fields.Many2one('account.journal', 'Force Journal', help="The journal used when the eos is done.")
     account_move_id = fields.Many2one('account.move', 'Ledger Posting')
@@ -70,6 +80,26 @@ class HrEmployeeEos(models.Model):
     year_id = fields.Many2one('year.year', 'Year', required=True, readonly=True, states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, index=True,
                               default=lambda self: self.env['year.year'].find(time.strftime("%Y-%m-%d"), True),
                               ondelete='cascade')
+    ticket_account=fields.Many2many('account.account','ticket_rel','t1','t2')
+    loan_account=fields.Many2many('account.account','loan_rel','l1','l2')
+    other_deduction_account=fields.Many2many('account.account','deduction_rel','d1','d2')
+    other_allowance_account=fields.Many2many('account.account','allow_rel','a1','a2')
+
+    ticket_account_id=fields.Many2one('account.account')
+    loan_account_id=fields.Many2one('account.account')
+    other_deduction_account_id=fields.Many2one('account.account')
+    other_allowance_account_id=fields.Many2one('account.account')
+    remaining_leave_account_id=fields.Many2one('account.account')
+    payment_method=fields.Many2one('eos.method',required=True)
+
+    @api.onchange('payment_method')
+    def _onchange_payment_method(self):
+        for rec in self:
+            rec.ticket_account_id = rec.payment_method.ticket_account_id
+            rec.loan_account_id = rec.payment_method.loan_account_id
+            rec.other_deduction_account_id = rec.payment_method.other_deduction_account_id
+            rec.other_allowance_account_id = rec.payment_method.other_allowance_account_id
+            rec.remaining_leave_account_id = rec.payment_method.remaining_leave_account_id
 
     def _track_subtype(self, init_values):
         """
@@ -165,7 +195,7 @@ class HrEmployeeEos(models.Model):
                 raise UserError(_('Please define contract for selected Employee!'))
 
             # Currently your company contract wage will be calculate as last salary.
-            wages = contract_ids[0].wage
+            wages = contract_ids[0].basic
             total_eos = 0.0
             if 2 <= duration_years < 5:
                 total_eos = ((wages / 2) * duration_years) + (((wages / 2) / 12) * duration_months) + ((((wages/2) / 12) / 30) * duration_days)
@@ -219,7 +249,15 @@ class HrEmployeeEos(models.Model):
 
                 leave_details_id = self.env['leaves.details'].search(
                     [('annual_leaving_id', '=', annual_leaving_id.id), ('employee_id', '=', eos.employee_id.id)])
-                remaining_leaves = leave_details_id.remaining_leaves
+                time_request = self.env['hr.leave'].search(
+                    [('state', '=', 'validate'), ('employee_id', '=', self.employee_id.id),
+                     ('holiday_status_id.is_annual_leave', '=',True)])
+                time_off_days = sum(request.number_of_days for request in time_request)
+                allocation = self.env['hr.leave.allocation'].search(
+                    [('state', '=', 'validate'), ('employee_id', '=', self.employee_id.id),
+                     ('holiday_status_id.is_annual_leave', '=',True)])
+                number_of_days_allocation = sum(all.number_of_days for all in allocation)
+                remaining_leaves = number_of_days_allocation - time_off_days
                 # remaining_leaves = allocate_leave_month - leaves_taken
 
                 annual_leave_amount = (wages / 30) * remaining_leaves
@@ -314,6 +352,8 @@ class HrEmployeeEos(models.Model):
         """
             main function that is called when trying to create the accounting entries related to an expense
         """
+        debit_vals=[]
+        credit_vals=[]
         for eos in self:
             if not eos.employee_id.address_home_id:
                     raise UserError(_('The employee must have a home address.'))
@@ -326,46 +366,109 @@ class HrEmployeeEos(models.Model):
                 raise UserError(_('Please configure employee EOS for journal.'))
             timenow = time.strftime('%Y-%m-%d')
             amount = 0.0
-            amount -= eos.payable_eos
+            amount -= eos.total_eos
             eos_name = eos.name.split('\n')[0][:64]
             reference = eos.name
             journal_id = eos.journal_id.id
             credit_account_id = eos.journal_id.default_account_id.id
             debit_account_id = eos.employee_id.address_home_id.property_account_payable_id.id
+            credit_account_payable = eos.employee_id.address_home_id.property_account_payable_id.id
             if not credit_account_id:
                 raise UserError(_("Please configure %s journal's credit account.") % eos.journal_id.name)
-            debit_vals = {
-                'name': eos_name,
-                'account_id': debit_account_id,
-                'journal_id': journal_id,
-                'partner_id': eos.employee_id.address_home_id.id,
-                'date': timenow,
-                'debit': amount > 0.0 and amount or 0.0,
-                'credit': amount < 0.0 and -amount or 0.0,
-                'branch_id': eos.employee_id.branch_id.id or False,
-                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
-                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
-            }
-            credit_vals = {
-                'name': eos_name,
+            debit_vals.append({
+                'name': 'Total EOS',
                 'account_id': credit_account_id,
+                'journal_id': journal_id,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'date': timenow,
+                'debit': eos.total_eos > 0.0 and eos.total_eos or 0.0,
+                'credit': eos.total_eos < 0.0 and -eos.total_eos or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
+            debit_vals.append({
+                'name': 'Annual Leave',
+                'account_id': eos.remaining_leave_account_id.id,
+                'journal_id': journal_id,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'date': timenow,
+                'debit': eos.annual_leave_amount > 0.0 and eos.annual_leave_amount or 0.0,
+                'credit': eos.annual_leave_amount < 0.0 and -eos.annual_leave_amount or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
+            debit_vals.append({
+                'name': 'Ticket Value',
+                'account_id': eos.ticket_account_id.id,
+                'journal_id': journal_id,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'date': timenow,
+                'debit': eos.ticket_value  > 0.0 and eos.ticket_value  or 0.0,
+                'credit': eos.ticket_value  < 0.0 and -eos.ticket_value or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
+            debit_vals.append({
+                'name':'Other Allowance',
+                'account_id': eos.other_allowance_account_id.id,
+                'journal_id': journal_id,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'date': timenow,
+                'debit': eos.other_allowance  > 0.0 and eos.other_allowance or 0.0,
+                'credit': eos.other_allowance  < 0.0 and -eos.other_allowance or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
+            total_payable=((eos.total_eos + eos.annual_leave_amount + eos.ticket_value + eos.other_allowance) - (
+                        eos.others + eos.remaining_amount_loan))
+            debit_vals.append({
+                'name': 'Remaining Loan',
+                'account_id': eos.loan_account_id.id,
                 'partner_id': eos.employee_id.address_home_id.id,
                 'journal_id': journal_id,
                 'date': timenow,
-                'debit': amount < 0.0 and -amount or 0.0,
-                'credit': amount > 0.0 and amount or 0.0,
-                'branch_id': eos.employee_id.branch_id.id or False,
+                'debit': eos.remaining_amount_loan < 0.0 and -eos.remaining_amount_loan or 0.0,
+                'credit': eos.remaining_amount_loan > 0.0 and eos.remaining_amount_loan or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
                 'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
                 'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
-            }
+            })
+            debit_vals.append({
+                'name': 'Total Payable',
+                'account_id':eos.other_deduction_account_id.id,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'journal_id': journal_id,
+                'date': timenow,
+                'debit': eos.others < 0.0 and -eos.others  or 0.0,
+                'credit': eos.others  > 0.0 and eos.others or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
+            debit_vals.append({
+                'name': eos_name,
+                'account_id':credit_account_payable,
+                'partner_id': eos.employee_id.address_home_id.id,
+                'journal_id': journal_id,
+                'date': timenow,
+                'debit': total_payable < 0.0 and -total_payable  or 0.0,
+                'credit': total_payable  > 0.0 and total_payable or 0.0,
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'analytic_account_id': eos.contract_id.analytic_account_id.id or False,
+                'analytic_tag_ids': [(6, 0, eos.contract_id.analytic_tag_ids.ids)] or False,
+            })
             vals = {
                 'name': '/',
                 'narration': eos_name,
                 'ref': reference,
                 'journal_id': journal_id,
                 'date': timenow,
-                'branch_id': eos.employee_id.branch_id.id or False,
-                'line_ids': [(0, 0, debit_vals), (0, 0, credit_vals)]
+                # 'branch_id': eos.employee_id.branch_id.id or False,
+                'line_ids': [(0, 0, d)for d in debit_vals]
             }
             move = self.env['account.move'].create(vals)
             move.post()

@@ -6,11 +6,8 @@
     'name': '2D matrix for x2many fields',
     'version': '12.0.1.0.1',
     'author': (
-        'Therp BV, '
-        'Tecnativa, '
-        'Camptocamp, '
-        'Brainbean Apps, '
-        'Odoo Community Association (OCA)'
+        'erp-bank, '
+
     ),
     'website': 'https://github.com/OCA/web',
     'license': 'AGPL-3',

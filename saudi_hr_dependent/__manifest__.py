@@ -6,7 +6,7 @@
     'summary': "HR Dependent",
     'description': """
         Allow specific user to add dependents""",
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

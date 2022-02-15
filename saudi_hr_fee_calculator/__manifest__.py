@@ -5,7 +5,7 @@
     'name': "Saudi HR Fee Calculator",
     'summary': """ Saudi HR Fee Calculator """,
     'description': """ Calculate fees based on employee """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

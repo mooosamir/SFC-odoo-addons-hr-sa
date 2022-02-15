@@ -13,7 +13,7 @@
         'Eficent, '
         'Odoo Community Association (OCA)'
     ),
-    'website': 'https://github.com/OCA/hr-timesheet',
+    'website': 'http://www.erp-bank.com',
     'installable': True,
     'auto_install': False,
     'depends': [

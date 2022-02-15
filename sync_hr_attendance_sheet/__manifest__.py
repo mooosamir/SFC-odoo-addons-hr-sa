@@ -4,8 +4,8 @@
 {
     'name': 'Attendance Sheet For Employee Attendance',
     'version' : '1.0',
-    'author': 'Synconics Technologies Pvt. Ltd',
-    'website': 'https://www.synconics.com',
+    'author': 'erp-bank',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'sequence': 15,
     'summary': 'Attendance Sheet For Employee Attendance.',

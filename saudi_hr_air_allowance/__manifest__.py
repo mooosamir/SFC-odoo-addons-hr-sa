@@ -7,7 +7,7 @@
     'description': """
         By this module we can calculate the air allowances, deduct the amount from employee payslip
      """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

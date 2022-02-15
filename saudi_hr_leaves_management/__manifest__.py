@@ -8,7 +8,7 @@
     'description': """
      Holidays Management
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'images': [],
     'depends': [

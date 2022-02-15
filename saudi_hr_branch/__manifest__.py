@@ -7,13 +7,13 @@
     'description': """
             Middle East Human Resource Groups Configuration
         """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'sequence': 20,
     'license': 'OPL-1',
-    'depends': ['hr', 'multi_branches'],
+    'depends': ['hr'],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_branch_view.xml',

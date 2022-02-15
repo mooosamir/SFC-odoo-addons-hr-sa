@@ -7,7 +7,7 @@
     'description': """
         Middle East Human Resource Recruitment
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

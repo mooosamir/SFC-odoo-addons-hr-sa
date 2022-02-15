@@ -7,7 +7,7 @@
     'description': """
         Employee can put request for their business card, ID card and access card. HR Officer can print the ID card and Business card.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

@@ -5,7 +5,7 @@
     'name': "Middle East Human Resource Payroll",
     'summary': """ Middle East Human Resource Payroll """,
     'description': """ Middle East Human Resource Payroll """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

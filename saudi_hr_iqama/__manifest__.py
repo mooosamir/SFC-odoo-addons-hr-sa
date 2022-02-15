@@ -7,7 +7,7 @@
     'description': """
         IQAMA register and notify when near to expiry.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

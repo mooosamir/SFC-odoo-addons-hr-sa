@@ -51,7 +51,7 @@ class AnnualLeavingReport(models.TransientModel):
                 row += 1
                 for line in leave_id.leaves_details_ids:
                     sheet.write(row, column, line.employee_id.name or '', format2)
-                    sheet.write(row, column+1, line.branch_id.name or '', format2)
+                    # sheet.write(row, column+1, line.branch_id.name or '', format2)
                     sheet.write(row, column+2, line.allocated_leaves or '0.00', format2)
                     sheet.write(row, column+3, line.updated_leaves or '0.00', format2)
                     sheet.write(row, column+4, line.used_leaves or '0.00', format2)

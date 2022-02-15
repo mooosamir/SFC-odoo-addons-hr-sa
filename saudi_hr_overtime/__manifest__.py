@@ -7,7 +7,7 @@
     'description': """
         Calculate employee overtime based on employee attendance and overtime limit.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

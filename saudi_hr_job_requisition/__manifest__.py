@@ -7,13 +7,13 @@
     'description': """
         Job requisition will be created according to job positions and here number of employees will be defined,
     """,
-    'author': 'ERP-Bank',
-    'website': 'http://www.erp-bank.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
+    'author': 'erp-bank.',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',
     'sequence': 20,
-    'depends': ['hr_recruitment', 'saudi_hr'],
+    'depends': ['saudi_hr'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',

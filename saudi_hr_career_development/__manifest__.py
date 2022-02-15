@@ -5,7 +5,7 @@
     'name': "Middle East Human Resource Career Development",
     'summary': """ Middle East Human Resource Career Development """,
     'description': """ Middle East Human Resource Career Development """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Human Resources',
     'version': '1.0',

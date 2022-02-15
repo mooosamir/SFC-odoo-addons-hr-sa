@@ -25,7 +25,7 @@
                             <field name="country_id"/>
                             <field name="gender"/>
                             <field name="date_of_join"/>
-                            <field name="branch_id" domain="[('company_id', '=', company_id)]" groups="multi_branches.group_multi_branch"/>
+<!--                            <field name="branch_id" domain="[('company_id', '=', company_id)]" groups="multi_branches.group_multi_branch"/>-->
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                             <field name="no_of_months" invisible="1"/>
                         </group>
@@ -81,7 +81,7 @@
         <field name="arch" type="xml">
             <tree string="Employee Bonus">
                 <field name="employee_id" />
-                <field name="branch_id" groups="multi_branches.group_multi_branch"/>
+<!--                <field name="branch_id" groups="multi_branches.group_multi_branch"/>-->
                 <field name="department_id" />
                 <field name="gender"/>
                 <field name="company_id" groups="base.group_multi_company"/>
@@ -96,14 +96,14 @@
             <search string="Search Employee Bonus">
                 <field name="employee_id"/>
                 <field name="employee_id" string="Employee"/>
-                <field name="branch_id" string="Office" groups="multi_branches.group_multi_branch"/>
+<!--                <field name="branch_id" string="Office" groups="multi_branches.group_multi_branch"/>-->
                 <field name="company_id" string="Company" groups="base.group_multi_company"/>
                 <field name="department_id" string="Department"/>
                 <field name="job_id" string="Job Position"/>
                 <separator/>
                 <group expand="0" string="Group By...">
-                    <filter name="group_office" string="Office" context="{'group_by':'branch_id'}"
-                            groups="multi_branches.group_multi_branch"/>
+<!--                    <filter name="group_office" string="Office" context="{'group_by':'branch_id'}"-->
+<!--                            groups="multi_branches.group_multi_branch"/>-->
                     <filter name="group_company" string="Company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
                     <filter name="group_department" string="Department" context="{'group_by':'department_id'}"/>
                     <filter name="group_job" string="Job Position" context="{'group_by':'job_id'}"/>

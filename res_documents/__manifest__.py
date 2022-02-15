@@ -7,7 +7,7 @@
     'description': """
         Allow specific user to add documents and generate expiry documents notification
         """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

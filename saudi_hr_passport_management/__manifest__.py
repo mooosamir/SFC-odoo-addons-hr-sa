@@ -9,7 +9,7 @@
     'description': """
         Passport Management details.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'GR',
     'version': '1.0',

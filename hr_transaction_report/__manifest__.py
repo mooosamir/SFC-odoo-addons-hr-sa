@@ -6,7 +6,7 @@
     'summary': """Generate Employee Transaction Report""",
     'version': '1.0',
     'description': """Generate Employee Transaction Report""",
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'depends': ['saudi_hr_contract_amendment', 'saudi_hr_clearance',

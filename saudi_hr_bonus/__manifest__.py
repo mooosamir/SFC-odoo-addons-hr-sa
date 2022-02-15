@@ -8,7 +8,7 @@
         Bonus is compensation given to an employee in addition to his/her normal wage.
         A bonus can be used as a reward for achieving specific goals set by the company,
         or for dedication to the company - or even to join the company.""",
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

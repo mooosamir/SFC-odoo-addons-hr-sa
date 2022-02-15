@@ -11,12 +11,12 @@
         In manpower plan line there is the details about employee and calculate employees based on current employee,
         leaving employees and critical roles
     """,
-    'author': 'ERP-Bank',
-    'website': 'http://www.erp-bank.com/odoo-opensource-erp-middle-east-human-resource-hr-man-power-planning-employee-recruitment-training-process-management-solution/',
+    'author': 'erp-bank.',
+    'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',
     'license': 'OPL-1',
-    'depends': ['hr_recruitment', 'hr_fiscal_year', 'saudi_hr', 'saudi_hr_job_requisition'],
+    'depends': ['hr_fiscal_year', 'saudi_hr', 'saudi_hr_job_requisition'],
     'data': [
         'security/ir_rule.xml',
         'security/ir.model.access.csv',

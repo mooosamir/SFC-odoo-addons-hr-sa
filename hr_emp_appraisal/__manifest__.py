@@ -5,7 +5,7 @@
     'name': 'Employee Appraisal',
     'summary': """ Roll out appraisal plans and get the best of your workforce """,
     'description': """ Roll out appraisal plans and get the best of your workforce """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',

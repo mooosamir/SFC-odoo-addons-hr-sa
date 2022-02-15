@@ -5,7 +5,7 @@
     'name': "HR Fiscal Year",
     'summary': """ HR Fiscal Year """,
     'description': """ Calendar Year For Public Holiday Duration and Year period""",
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'HR',
     'version': '1.0',

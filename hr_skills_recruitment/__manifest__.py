@@ -6,7 +6,7 @@
     'summary': 'HR Skill Recruitment',
     'description': """
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'version': '1.0',
     'sequence': 20,

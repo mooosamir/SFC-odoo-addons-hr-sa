@@ -140,7 +140,7 @@ class LeavesDetails(models.Model):
 
     employee_id = fields.Many2one('hr.employee', string='Employee', required=True, domain=lambda self: self._get_employee_domain())
     department_id = fields.Many2one('hr.department', 'Department', related="employee_id.department_id", store=True)
-    branch_id = fields.Many2one('res.branch', 'Office', related="employee_id.branch_id", store=True)
+    # branch_id = fields.Many2one('res.branch', 'Office', related="employee_id.branch_id", store=True)
     annual_leaving_id = fields.Many2one('annual.leaving', 'Annual Leaving')
     year_id = fields.Many2one('year.year', related='annual_leaving_id.year_id', readonly=True, store=True)
 

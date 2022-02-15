@@ -7,7 +7,7 @@
     'description': """
         This module is useful when any expats candidate leave from other organization and hire on our organization at that time we need to change the sponsorship of candidate.
     """,
-    'author': 'ERP-Bank',
+    'author': 'erp-bank.',
     'website': 'http://www.erp-bank.com',
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
