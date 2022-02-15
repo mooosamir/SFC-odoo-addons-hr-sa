@@ -105,7 +105,7 @@
                             <group>
                                 <group>
                                     <field name="journal_id" attrs="{'readonly':[('state', '!=', 'open')], 'required':[('state', '=', 'open')]}"/>
-<!--                                    <field name="partner_id" readonly="1" force_save="1"/>-->
+                                    <field name="partner_id" readonly="1" force_save="1"/>
                                     <field name="analytic_account_id" attrs="{'readonly':[('state', '!=', 'open')]}" groups="analytic.group_analytic_accounting" force_save="1"/>
                                     <field name="analytic_tag_ids" attrs="{'readonly':[('state', '!=', 'open')]}" widget="many2many_tags" groups="analytic.group_analytic_tags" force_save="1"/>
                                     <field name="move_id" attrs="{'invisible': [('move_id', '=', False)]}"/>
