@@ -18,51 +18,51 @@
 <!--                <field name="early_notification_day"/>-->
 <!--                <field name="trial_notification_day_before"/>-->
 <!--            </xpath>-->
-            <xpath expr="//page[@name='information']//group[@name='salary_and_advantages']" position="inside">
-                <field name="basic"/>
-                <field name="HRA"/>
-                <field name="TA"/>
-                <field name="allowance1"/>
-                <field name="allowance2"/>
-                <field name="allowance3"/>
-                <field name="allowance4"/>
-                <field name="total_salary"/>
-            </xpath>
-            <xpath expr="//page[@name='information']" position="inside">
-                <group name="other_allowance" string="Other Allowances">
-                    <group>
-                        <field name="signon_bonus"/>
-                        <field name="signon_bonus_amount" attrs="{'invisible': [('signon_bonus','!=',True)], 'required': [('signon_bonus','=',True)]}" />
-                        <field name="period_ids" widget="many2many_tags" attrs="{'invisible': [('signon_bonus','!=',True)], 'required': [('signon_bonus','=',True)]}" />
-                    </group>
-                </group>
-            </xpath>
-            <xpath expr="//page[@name='information']" position="after">
-                <page string="Extra Information" groups="base.group_no_one">
-                    <group col="4">
-                        <field name="create_uid" readonly="1"/>
-                        <field name="create_date" readonly="1"/>
-                        <field name="write_uid" readonly="1"/>
-                        <field name="write_date" readonly="1"/>
-                    </group>
-                </page>
-            </xpath>
-            <!-- <field name="analytic_account_id" position="after">
-                <field name="analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags"/>
-            </field> -->
-        </field>
-    </record>
-
-<!--    <record id="saudi_hr_contract_hr_contract_form_inherit" model="ir.ui.view">-->
-<!--        <field name="name">saudi.hr.contract.view.inherit</field>-->
-<!--        <field name="model">hr.contract</field>-->
-<!--        <field name="inherit_id" ref="hr_payroll_account.hr_contract_form_inherit" />-->
-<!--        <field name="arch" type="xml">-->
-<!--            <field name="analytic_account_id" position="after">-->
+<!--            <xpath expr="//page[@name='information']//group[@name='salary_and_advantages']" position="inside">-->
+<!--                <field name="basic"/>-->
+<!--                <field name="HRA"/>-->
+<!--                <field name="TA"/>-->
+<!--                <field name="allowance1"/>-->
+<!--                <field name="allowance2"/>-->
+<!--                <field name="allowance3"/>-->
+<!--                <field name="allowance4"/>-->
+<!--                <field name="total_salary"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//page[@name='information']" position="inside">-->
+<!--                <group name="other_allowance" string="Other Allowances">-->
+<!--                    <group>-->
+<!--                        <field name="signon_bonus"/>-->
+<!--                        <field name="signon_bonus_amount" attrs="{'invisible': [('signon_bonus','!=',True)], 'required': [('signon_bonus','=',True)]}" />-->
+<!--                        <field name="period_ids" widget="many2many_tags" attrs="{'invisible': [('signon_bonus','!=',True)], 'required': [('signon_bonus','=',True)]}" />-->
+<!--                    </group>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//page[@name='information']" position="after">-->
+<!--                <page string="Extra Information" groups="base.group_no_one">-->
+<!--                    <group col="4">-->
+<!--                        <field name="create_uid" readonly="1"/>-->
+<!--                        <field name="create_date" readonly="1"/>-->
+<!--                        <field name="write_uid" readonly="1"/>-->
+<!--                        <field name="write_date" readonly="1"/>-->
+<!--                    </group>-->
+<!--                </page>-->
+<!--            </xpath>-->
+<!--            &lt;!&ndash; <field name="analytic_account_id" position="after">-->
 <!--                <field name="analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags"/>-->
-<!--            </field>-->
+<!--            </field> &ndash;&gt;-->
 <!--        </field>-->
 <!--    </record>-->
+
+<!--&lt;!&ndash;    <record id="saudi_hr_contract_hr_contract_form_inherit" model="ir.ui.view">&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="name">saudi.hr.contract.view.inherit</field>&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="model">hr.contract</field>&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="inherit_id" ref="hr_payroll_account.hr_contract_form_inherit" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="arch" type="xml">&ndash;&gt;-->
+<!--&lt;!&ndash;            <field name="analytic_account_id" position="after">&ndash;&gt;-->
+<!--&lt;!&ndash;                <field name="analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </field>&ndash;&gt;-->
+<!--&lt;!&ndash;        </field>&ndash;&gt;-->
+<!--&lt;!&ndash;    </record>&ndash;&gt;-->
 
 
     <record id="hr_contract_view_search" model="ir.ui.view">
