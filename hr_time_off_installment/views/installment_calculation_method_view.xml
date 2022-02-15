@@ -30,27 +30,20 @@
                         </h1>
                     </div>
 
-<!--                    <group>-->
+                    <group>
 
-<!--                        <group>-->
-<!--                            <field name="company_id" groups="base.group_multi_company"/>-->
-<!--                            <field name="user_id" invisible="1"/>-->
-<!--                             <field name="ticket_debit_id"/>-->
-<!--                            <field name="ticket_credit_id"/>-->
-<!--                            <field name="other_deductions_debit_id"/>-->
-<!--                            <field name="other_deductions_credit_id"/>-->
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="user_id" invisible="1"/>
 
-<!--                        </group>-->
-<!--                         <group>-->
-<!--                            <field name="time_off_debit_id"/>-->
-<!--                            <field name="time_off_credit_id"/>-->
-<!--                            <field name="other_allowances_debit_id"/>-->
-<!--                            <field name="other_allowances_credit_id"/>-->
-
-<!--                        </group>-->
+                        </group>
+                         <group>
+                            <field name="time_off_debit_id"/>
+                            <field name="time_off_credit_id"/>
+                        </group>
 
 
-<!--                    </group>-->
+                    </group>
                     <notebook>
                         <page string="Installment Method">
                             <field name="installment_method_ids">
