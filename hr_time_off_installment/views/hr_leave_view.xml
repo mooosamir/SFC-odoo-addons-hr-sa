@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
                     <field name="is_paid" readonly="True"/>
-                    <field name="pay_in_advance" widget="radio" options="{'horizontal': true}"/>
+<!--                    <field name="pay_in_advance" widget="radio" options="{'horizontal': true}"/>-->
 
             </xpath>
         </field>
