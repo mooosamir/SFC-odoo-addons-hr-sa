@@ -47,9 +47,9 @@ class HRContract(models.Model):
     @api.onchange('wage')
     def _onchange_wage(self):
         if self.wage > 0:
-            self.basic = self.wage / 1.35
-            self.HRA = self.basic * 0.25
-            self.TA = self.basic * 0.1
+            self.basic = self.wage * 0.60
+            self.HRA = self.wage * 0.30
+            self.TA = self.wage * 0.1
 
 
     # ===========================================================================
