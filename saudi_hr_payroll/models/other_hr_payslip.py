@@ -6,6 +6,10 @@ from odoo.exceptions import UserError
 import time
 
 
+class HrEmployee(models.Model):
+    _inherit = 'hr.employee'
+    allowance_limit=fields.Float()
+
 class OtherHrPayslip(models.Model):
     _name = 'other.hr.payslip'
     _inherit = ['mail.thread']
@@ -27,7 +31,7 @@ class OtherHrPayslip(models.Model):
     employee_id = fields.Many2one('hr.employee', 'Employee', required=True)
     payslip_id = fields.Many2one('hr.payslip', readonly=True, string='Payslip', copy=False)
     department_id = fields.Many2one('hr.department', readonly=True, string='Department')
-    state = fields.Selection([('draft', 'Draft'),
+    state = fields.Selection([('draft', 'Draft'),('submit', 'Submit'),('first_approve', 'First Approve'),('second_approve', 'Second Approve'),('third_approve', 'Third Approve'),
                               ('done', 'Done')], string='State', default='draft', track_visibility='onchange')
     company_id = fields.Many2one('res.company', string="Company", required=True, default=lambda self: self.env.user.company_id)
 
@@ -86,3 +90,27 @@ class OtherHrPayslip(models.Model):
         """
         for rec in self:
             rec.state = 'draft'
+
+    def submit(self):
+        for rec in self:
+            rec.state = 'submit'
+            if rec.calc_type == 'hours':
+                year = rec.date.strftime('%y')
+                allowances=self.search([('employee_id','=',rec.employee_id.id),('calc_type','=','hours')])
+                allowances_limit=0.0
+                for allow in allowances:
+                    if year == allow.date.strftime('%y'):
+                       allowances_limit += allow.no_of_hours
+                if allowances_limit > rec.employee_id.allowances_limit :
+                    raise ValueError(_('Allowance Limit for this employee is %s and allowance that ordered is %s')%(str(rec.employee_id.allowances_limit),str(allowances_limit)))
+    def first_approve(self):
+        for rec in self:
+            rec.state = 'first_approve'
+    def second_approve(self):
+        for rec in self:
+            rec.state = 'second_approve'
+    def third_approve(self):
+        for rec in self:
+            rec.state = 'third_approve'
+
+
