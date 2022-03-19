@@ -101,7 +101,7 @@ class OtherHrPayslip(models.Model):
                 for allow in allowances:
                     if year == allow.date.strftime('%y'):
                        allowances_limit += allow.no_of_hours
-                if allowances_limit > rec.employee_id.allowances_limit :
+                if allowances_limit > rec.employee_id.allowance_limit :
                     raise ValueError(_('Allowance Limit for this employee is %s and allowance that ordered is %s')%(str(rec.employee_id.allowances_limit),str(allowances_limit)))
     def first_approve(self):
         for rec in self:

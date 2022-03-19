@@ -17,7 +17,7 @@
                     <button name="other_hr_payslip_done" string="Done" states="third_approve" type="object" class="oe_highlight"
                             groups="hr_payroll.group_hr_payroll_user"/>
                     <button name="set_draft" string="Set as Draft" states="done" type="object"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submit,first_approve,second_approve,third_approve,done"/>
                 </header>
                 <sheet>
                     <separator string="Employee Information"/>
