@@ -4,8 +4,6 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 import time
-from odoo.exceptions import ValidationError
-
 
 
 class HrEmployee(models.Model):
@@ -104,7 +102,7 @@ class OtherHrPayslip(models.Model):
                     if year == allow.date.strftime('%y'):
                        allowances_limit += allow.no_of_hours
                 if allowances_limit > rec.employee_id.allowance_limit :
-                    raise ValidationError(_('Allowance Limit for this employee is %s and allowance that ordered is %s')%(str(rec.employee_id.allowance_limit),str(allowances_limit)))
+                    raise ValueError(_('Allowance Limit for this employee is %s and allowance that ordered is %s')%(str(rec.employee_id.allowance_limit),str(allowances_limit)))
     def first_approve(self):
         for rec in self:
             rec.state = 'first_approve'
