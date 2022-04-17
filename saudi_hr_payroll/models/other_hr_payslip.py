@@ -10,7 +10,8 @@ import time
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
-    allowance_limit=fields.Float()
+    allowance_limit = fields.Float()
+
 
 class OtherHrPayslip(models.Model):
     _name = 'other.hr.payslip'
@@ -22,8 +23,9 @@ class OtherHrPayslip(models.Model):
     no_of_days = fields.Float('No of Days')
     operation_type = fields.Selection([('allowance', 'Allowance'), ('deduction', 'Deduction')],
                                       string='Type', default='allowance', required=True)
-    calc_type = fields.Selection([('amount', 'By Amount'), ('days', 'By Days'), ('hours', 'By Hours'), ('percentage', 'By Percentage')],
-                                 string='Calculation Type', required=True, default='amount')
+    calc_type = fields.Selection(
+        [('amount', 'By Amount'), ('days', 'By Days'), ('hours', 'By Hours'), ('percentage', 'By Percentage')],
+        string='Calculation Type', required=True, default='amount')
     country_id = fields.Many2one('res.country', 'Country')
     no_of_hours = fields.Float(string='No of Hours')
     percentage = fields.Float(string='Percentage')
@@ -33,9 +35,12 @@ class OtherHrPayslip(models.Model):
     employee_id = fields.Many2one('hr.employee', 'Employee', required=True)
     payslip_id = fields.Many2one('hr.payslip', readonly=True, string='Payslip', copy=False)
     department_id = fields.Many2one('hr.department', readonly=True, string='Department')
-    state = fields.Selection([('draft', 'Draft'),('submit', 'Submit'),('first_approve', 'First Approve'),('second_approve', 'Second Approve'),('third_approve', 'Third Approve'),
-                              ('done', 'Done')], string='State', default='draft', track_visibility='onchange')
-    company_id = fields.Many2one('res.company', string="Company", required=True, default=lambda self: self.env.user.company_id)
+    state = fields.Selection([('draft', 'Draft'), ('submit', 'Submit'), ('first_approve', 'First Approve'),
+                              ('second_approve', 'Second Approve'), ('third_approve', 'Third Approve'),
+                              ('done', 'Done'), ('cancel', 'Cancelled')], string='State', default='draft',
+                             track_visibility='onchange')
+    company_id = fields.Many2one('res.company', string="Company", required=True,
+                                 default=lambda self: self.env.user.company_id)
 
     def unlink(self):
         """
@@ -98,21 +103,32 @@ class OtherHrPayslip(models.Model):
             rec.state = 'submit'
             if rec.calc_type == 'hours':
                 year = rec.date.strftime('%y')
-                allowances=self.search([('employee_id','=',rec.employee_id.id),('calc_type','=','hours')])
-                allowances_limit=0.0
+                allowances = self.search([('employee_id', '=', rec.employee_id.id), ('calc_type', '=', 'hours')])
+                allowances_limit = 0.0
                 for allow in allowances:
                     if year == allow.date.strftime('%y'):
-                       allowances_limit += allow.no_of_hours
-                if allowances_limit > rec.employee_id.allowance_limit :
-                    raise ValidationError(_('Allowance Limit for this employee is %s and allowance that ordered is %s')%(str(rec.employee_id.allowance_limit),str(allowances_limit)))
+                        allowances_limit += allow.no_of_hours
+                if allowances_limit > rec.employee_id.allowance_limit:
+                    raise ValidationError(
+                        _('Allowance Limit for this employee is %s and allowance that ordered is %s') % (
+                        str(rec.employee_id.allowance_limit), str(allowances_limit)))
+
     def first_approve(self):
         for rec in self:
             rec.state = 'first_approve'
+
     def second_approve(self):
         for rec in self:
             rec.state = 'second_approve'
+
     def third_approve(self):
         for rec in self:
             rec.state = 'third_approve'
+
+    def cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+
+
 
 
