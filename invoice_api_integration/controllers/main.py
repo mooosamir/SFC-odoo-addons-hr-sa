@@ -43,22 +43,26 @@ class HttpRequestApi(http.Controller):
                         'client_nation_id': Client.get('Client_NID'),
                         'street': Client.get('Client_Address'),
                     }
+                    print("VALS ->", partner_vals)
                     clientID = partner_obj.create(partner_vals).id
 
             for line in items_lines:
                 product_id = request.env['product.product'].sudo().search(
                     [('product_type', '=', line.get('Item_Category'))], limit=1)
+
                 analytic_account_id = request.env['account.analytic.account'].sudo().search(
                     [('product_type', '=', line.get('Item_Category'))], limit=1)
+
                 vals = (0, 0, {
                     'name': line.get('Item_Name'),
                     'product_id': product_id.id if product_id else False,
                     'analytic_account_id': analytic_account_id.id if analytic_account_id else False,
                     'account_id': account_id.id,
-                    'quantity': 1,
+                    'quantity': line.get('Quantity', 1),
                     'price_unit': line.get('Price'),
                 })
                 lines.append(vals)
+
             if kw.get('TAX', False):
                 tax_value = (0, 0, {
                     'product_id': request.env['product.product'].sudo().search(
@@ -69,24 +73,42 @@ class HttpRequestApi(http.Controller):
                     'price_unit': kw.get('TAX'),
                 })
                 lines.append(tax_value)
+
             if kw.get('Shipping_Fees', False):
                 tax_value = (0, 0, {
                     'product_id': request.env['product.product'].sudo().search(
                         [('product_type', '=', 'shipping')], limit=1).id,
                     'account_id': account_id.id,
-                    'quantity': 1,
-                    'price_unit': kw.get('Shipping_Fees'),
+                    'quantity': kw.get('Shipping_Fees').get('quantity', 1),
+                    'price_unit': kw.get('Shipping_Fees').get('price'),
                 })
                 lines.append(tax_value)
+
             if kw.get('Service_Charge', False):
-                tax_value = (0, 0, {
+                service_change_line = (0, 0, {
                     'product_id': request.env['product.product'].sudo().search(
                         [('product_type', '=', 'charge')], limit=1).id,
                     'account_id': account_id.id,
-                    'quantity': 1,
-                    'price_unit': kw.get('Service_Charge'),
+                    'quantity': kw.get('Service_Charge').get('quantity', 1),
+                    'price_unit': kw.get('Service_Charge').get('price'),
                 })
-                lines.append(tax_value)
+
+                lines.append(service_change_line)
+
+            # Weapon Overage Section
+            weapon_overage = kw.get('WeaponOverage', False)
+            if weapon_overage:
+                weapon_overage_line = (0, 0, {
+                    'product_id': request.env['product.product'].sudo().search(
+                        [('product_type', '=', 'weapon_overage')], limit=1).id,
+                    'account_id': account_id.id,
+                    'quantity': weapon_overage.get('quantity', 1),
+                    'price_unit': weapon_overage.get('price'),
+                })
+                lines.append(weapon_overage_line)
+
+            total_service_charge = kw.get('Service_Charge').get('quantity') * kw.get('Service_Charge').get('price')
+            total_shipping_fees = kw.get('Shipping_Fees').get('quantity') * kw.get('Shipping_Fees').get('price')
 
             order_val = {
                 "partner_id": clientID,
@@ -96,13 +118,15 @@ class HttpRequestApi(http.Controller):
                 "move_type": 'out_invoice',
                 "order_date": str(kw.get('Order_Datetime')),
                 "invoice_ref": kw.get('Invoice_Ref'),
-                "service_charge": kw.get('Service_Charge'),
-                "shipping_fees": kw.get('Shipping_Fees'),
+                "service_charge": total_service_charge,
+                "shipping_fees": total_shipping_fees,
                 "invoice_link": kw.get('Invoice'),
                 "is_ecommerce": True,
                 "invoice_line_ids": lines,
             }
+
             order_id = order.create(order_val)
+            print("ORDER ->", order_id)
             order_id.action_post()
             if order_id:
                 return {
@@ -115,6 +139,7 @@ class HttpRequestApi(http.Controller):
                         'total': round(order_id.amount_total, 2)
                     }}
         except Exception as err:
+            print(err)
             return {
                 "isSubmitted": True,
                 "isSubmittedSuccessfully": False,
