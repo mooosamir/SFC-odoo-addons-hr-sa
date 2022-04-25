@@ -2,19 +2,29 @@
 <odoo>
 
     <record model="ir.module.category" id="module_payslip_batch">
-        <field name="name">Payslip Batch</field>
+        <field name="name">Payslip Batch Approver</field>
         <field name="sequence">11</field>
     </record>
 
 
     <record id="first_approve_batch" model="res.groups">
-        <field name="name">First Approve</field>
+        <field name="name">HR</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>
 
     <record id="second_approve_batch" model="res.groups">
-        <field name="name">Second Approve</field>
+        <field name="name">CFO</field>
+        <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
+
+    </record>
+    <record id="CEO_approve_batch" model="res.groups">
+        <field name="name">CEO</field>
+        <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
+
+    </record>
+    <record id="GM_approve_batch" model="res.groups">
+        <field name="name">GM</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>

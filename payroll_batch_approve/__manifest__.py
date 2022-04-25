@@ -11,7 +11,7 @@
     'category': 'Generic Modules/Human Resources',
     'version': '1.0',
     'depends': [
-        'base','hr','hr_payroll'
+        'base','hr','hr_payroll','hr_payroll_account'
     ],
     'data': [
         'security/res_group.xml',
