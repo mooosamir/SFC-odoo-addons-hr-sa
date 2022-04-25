@@ -86,7 +86,7 @@ class PurchaseRequest(models.Model):
             (
                 "groups_id",
                 "in",
-                self.env.ref("purchase_request.group_purchase_request_manager").id,
+                [self.env.ref("purchase_request.group_purchase_request_manager").id , self.env.ref("purchase_request.group_purchase_request_approver").id]
             )
         ],
         index=True,

@@ -13,7 +13,7 @@
                         states="to_approve,approved,rejected,done"
                         string="Reset"
                         type="object"
-                        groups="purchase_request.group_purchase_request_manager"
+                        groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
                     />
                     <button
                         name="button_to_approve"
@@ -28,7 +28,7 @@
                         string="Approve"
                         type="object"
                         class="oe_highlight"
-                        groups="purchase_request.group_purchase_request_manager"
+                        groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
                     />
                     <button
                         name="%(action_purchase_request_line_make_purchase_order)d"
@@ -42,14 +42,14 @@
                         string="Done"
                         type="object"
                         class="oe_highlight"
-                        groups="purchase_request.group_purchase_request_manager"
+                        groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
                     />
                     <button
                         name="button_rejected"
                         states="to_approve,approved"
                         string="Reject"
                         type="object"
-                        groups="purchase_request.group_purchase_request_manager"
+                        groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
                     />
                     <field
                         name="state"
@@ -477,13 +477,13 @@
         id="parent_menu_purchase_request"
         name="Purchase Requests"
         web_icon="purchase_request,static/description/icon.png"
-        groups="group_purchase_request_user,group_purchase_request_manager"
+        groups="group_purchase_request_user,group_purchase_request_manager,group_purchase_request_approver"
     />
     <menuitem
         id="menu_purchase_request"
         name="Purchase Requests"
         parent="parent_menu_purchase_request"
-        groups="group_purchase_request_user,group_purchase_request_manager"
+        groups="group_purchase_request_user,group_purchase_request_manager,group_purchase_request_approver"
     />
     <menuitem
         id="menu_purchase_request_act"
