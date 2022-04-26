@@ -20,7 +20,7 @@ class WizardBankFile(models.TransientModel):
 
    def print_excel(self):
       active_record = self.env.context.get('active_ids', [])
-      record = self.env['sale.order'].browse(active_record)
+      record = self.env['hr.payslip'].browse(active_record)
 
       data = {
          'ids': self.ids,
