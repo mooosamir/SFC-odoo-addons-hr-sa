@@ -104,6 +104,15 @@ class HrPayrollRun(models.Model):
                 raise UserError(_("Cannot cancel a payslip that is done."))
             payslip.action_payslip_cancel()
 
+    def action_draft(self):
+        res=super(HrPayrollRun, self).action_draft()
+        for payslip in self.slip_ids:
+            payslip.action_payslip_draft()
+
+        return res
+
+
+
 
 
 

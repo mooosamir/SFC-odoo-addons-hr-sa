@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <record id="view_wizard_bank_file" model="ir.ui.view">
+            <field name="name">wizard.bank.file.form</field>
+            <field name="model">wizard.bank.file</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="print_excel" string="Print XLSX" type="object" context="{'xls_export':1}"
+                                class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_bank_file_action" model="ir.actions.act_window">
+            <field name="name">Bank Salaries</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.bank.file</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wizard_bank_file_action" id="wizard_bank_file_menu" name="Bank Salaries"
+                  parent="hr_payroll.menu_hr_payroll_report" groups="bank_salary_report.bank_file_user_id"/>
+
+
+
+
+    </data>
+</odoo>

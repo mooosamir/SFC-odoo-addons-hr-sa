@@ -1,0 +1,14 @@
+<odoo>
+
+	<report
+                id="bank_salary_report_excel_id"
+                model="hr.payslip"
+                string="Bank Salaries"
+                report_type="xlsx"
+                name="bank_salary_report.bank_salary_report_excel"
+                file="Bank Salaries"
+                attachment_use="False"
+                menu="False"
+
+        />
+</odoo>
