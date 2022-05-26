@@ -277,11 +277,9 @@ class PurchaseRequest(models.Model):
         return self.write({"state": "to_approve"})
 
     def button_second_approve(self):
-        self.to_approve_allowed_check()
         return self.write({"state": "second_approve"})
 
     def button_third_approve(self):
-        self.to_approve_allowed_check()
         return self.write({"state": "third_approve"})
 
     def button_approved(self):

@@ -68,7 +68,7 @@
                     <field
                         name="state"
                         widget="statusbar"
-                        statusbar_visible="draft,to_approve,approved,done,rejected"
+                        statusbar_visible="draft,to_approve,second_approve,third_approve,approved,done,rejected"
                         statusbar_colors='{"approved":"blue"}'
                     />
                 </header>

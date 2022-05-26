@@ -48,6 +48,13 @@ class HrPayroll(models.Model):
             raise UserError(_("Cannot cancel a batch that is done."))
         self.mapped('payslip_run_id').write({'state':'cancel'})
 
+    def action_payslip_done(self):
+        res=super(HrPayroll, self).action_payslip_done()
+        for rec in self:
+            if rec.move_id.id:
+               return res
+
+
 
 
 
