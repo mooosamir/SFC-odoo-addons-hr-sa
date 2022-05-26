@@ -10,7 +10,7 @@
                 <header>
                     <button
                         name="button_draft"
-                        states="to_approve,approved,rejected,done"
+                        states="second_approve,third_approve,to_approve,approved,rejected,done"
                         string="Reset"
                         type="object"
                         groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
@@ -23,8 +23,22 @@
                         class="oe_highlight"
                     />
                     <button
-                        name="button_approved"
+                        name="button_second_approve"
                         states="to_approve"
+                        string="Second approval"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button
+                        name="button_third_approve"
+                        states="second_approve"
+                        string="Third approval"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button
+                        name="button_approved"
+                        states="third_approve"
                         string="Approve"
                         type="object"
                         class="oe_highlight"
@@ -46,7 +60,7 @@
                     />
                     <button
                         name="button_rejected"
-                        states="to_approve,approved"
+                        states="to_approve,second_approve,third_approve,approved"
                         string="Reject"
                         type="object"
                         groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
