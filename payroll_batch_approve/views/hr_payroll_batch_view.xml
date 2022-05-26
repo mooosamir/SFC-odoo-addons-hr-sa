@@ -68,6 +68,7 @@
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_payslip_done']" position="attributes">
                 <attribute name="attrs">{'invisible': [('state', 'not in', ['GM_approve'])]}</attribute>
+                <attribute name="groups">account.group_account_invoice,account.group_account_user,account.group_account_manager</attribute>
             </xpath>
 
         </field>
