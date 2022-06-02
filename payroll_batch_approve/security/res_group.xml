@@ -8,23 +8,23 @@
 
 
     <record id="first_approve_batch" model="res.groups">
-        <field name="name">HR</field>
+        <field name="name">First Approve</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>
 
     <record id="second_approve_batch" model="res.groups">
-        <field name="name">CFO</field>
+        <field name="name">Second Approve</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>
     <record id="CEO_approve_batch" model="res.groups">
-        <field name="name">CEO</field>
+        <field name="name">Third Approve</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>
     <record id="GM_approve_batch" model="res.groups">
-        <field name="name">GM</field>
+        <field name="name">Fourth Approve</field>
         <field name="category_id" ref="payroll_batch_approve.module_payslip_batch"/>
 
     </record>
