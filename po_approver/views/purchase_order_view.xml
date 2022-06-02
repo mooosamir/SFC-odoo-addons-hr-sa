@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="purchase_order_form_inherit">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">draft,submit,first_approve,second_approve,sent,purchase</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+                <attribute name="groups">po_approver.confirm_po</attribute>
+                <attribute name="states">not</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_confirm'][1]" position="attributes">
+                <attribute name="groups">po_approver.confirm_po</attribute>
+                <attribute name="states">second_approve</attribute>
+
+            </xpath>
+
+            <xpath expr="//button[@name='button_confirm']" position="before">
+                <button name="submit" string="Submit" class="btn-primary" type="object"
+                        states="draft"/>
+
+                <button name="first_approve" string="First Approve" class="btn-primary" type="object"
+                        states="submit" groups="purchase.group_purchase_manager"/>
+
+                 <button name="second_approve" string="Second Approve" class="btn-primary" type="object"
+                        states="first_approve" groups="po_approver.second_approve_po"/>
+
+            </xpath>
+            <xpath expr="//button[@name='action_rfq_send'][1]" position="attributes">
+                <attribute name="states">draft,first_approve,second_approve,submit</attribute>
+
+            </xpath>
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                <attribute name="states">
+                    draft,to approve,sent,purchase,first_approve,second_approve,submit
+                </attribute>
+
+            </xpath>
+
+
+
+
+
+
+        </field>
+    </record>
+
+
+
+</odoo>

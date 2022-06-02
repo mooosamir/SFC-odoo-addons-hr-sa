@@ -1,0 +1,23 @@
+<odoo>
+<data>
+        <record id="po_approver_category" model="ir.module.category">
+            <field name="name">Purchase Order Approver</field>
+
+        </record>
+
+        <record id="confirm_po" model="res.groups">
+            <field name="name">Confirm Purchase Order</field>
+            <field name="users" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="po_approver_category"/>
+
+        </record>
+
+        <record id="second_approve_po" model="res.groups">
+            <field name="name">Second Approver</field>
+            <field name="users" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="po_approver_category"/>
+
+        </record>
+
+</data>
+</odoo>
