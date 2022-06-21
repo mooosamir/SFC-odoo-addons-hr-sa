@@ -3,7 +3,7 @@
     'version': '1.0.0',
     'author': "erp-bank",
     'website': "www.erp-bank.com",
-    'depends': ['base','purchase'],
+    'depends': ['base','purchase','purchase_request'],
     'summary': 'PO Approver',
     'description': '''PO Approver''',
     'data': [
