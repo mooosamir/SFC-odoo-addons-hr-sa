@@ -28,7 +28,7 @@ class PurchaseOrder(models.Model):
 
     def button_confirm(self):
         for order in self:
-            if order.state not in ['draft', 'sent']:
+            if order.state not in ['draft', 'sent','second_approve']:
                 continue
             order._add_supplier_to_product()
             # Deal with double validation process
@@ -38,4 +38,6 @@ class PurchaseOrder(models.Model):
                 order.write({'state': 'to approve'})
             if order.partner_id not in order.message_partner_ids:
                 order.message_subscribe([order.partner_id.id])
+        self._purchase_request_line_check()
+        self._purchase_request_confirm_message()
         return True
