@@ -7,8 +7,6 @@ from odoo.exceptions import UserError
 _STATES = [
     ("draft", "Draft"),
     ("to_approve", "To be approved"),
-    ("second_approve", "Second approved"),
-    ("third_approve", "Third approved"),
     ("approved", "Approved"),
     ("rejected", "Rejected"),
     ("done", "Done"),
@@ -276,11 +274,11 @@ class PurchaseRequest(models.Model):
         self.to_approve_allowed_check()
         return self.write({"state": "to_approve"})
 
-    def button_second_approve(self):
-        return self.write({"state": "second_approve"})
-
-    def button_third_approve(self):
-        return self.write({"state": "third_approve"})
+    # def button_second_approve(self):
+    #     return self.write({"state": "second_approve"})
+    #
+    # def button_third_approve(self):
+    #     return self.write({"state": "third_approve"})
 
     def button_approved(self):
         return self.write({"state": "approved"})

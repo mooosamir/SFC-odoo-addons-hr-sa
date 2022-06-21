@@ -10,7 +10,7 @@
                 <header>
                     <button
                         name="button_draft"
-                        states="second_approve,third_approve,to_approve,approved,rejected,done"
+                        states="to_approve,approved,rejected,done"
                         string="Reset"
                         type="object"
                         groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
@@ -22,23 +22,23 @@
                         type="object"
                         class="oe_highlight"
                     />
-                    <button
-                        name="button_second_approve"
-                        states="to_approve"
-                        string="Second approval"
-                        type="object"
-                        class="oe_highlight"
-                    />
-                    <button
-                        name="button_third_approve"
-                        states="second_approve"
-                        string="Third approval"
-                        type="object"
-                        class="oe_highlight"
-                    />
+<!--                    <button-->
+<!--                        name="button_second_approve"-->
+<!--                        states="to_approve"-->
+<!--                        string="Second approval"-->
+<!--                        type="object"-->
+<!--                        class="oe_highlight"-->
+<!--                    />-->
+<!--                    <button-->
+<!--                        name="button_third_approve"-->
+<!--                        states="second_approve"-->
+<!--                        string="Third approval"-->
+<!--                        type="object"-->
+<!--                        class="oe_highlight"-->
+<!--                    />-->
                     <button
                         name="button_approved"
-                        states="third_approve"
+                        states="to_approve"
                         string="Approve"
                         type="object"
                         class="oe_highlight"
@@ -60,7 +60,7 @@
                     />
                     <button
                         name="button_rejected"
-                        states="to_approve,second_approve,third_approve,approved"
+                        states="to_approve,approved"
                         string="Reject"
                         type="object"
                         groups="purchase_request.group_purchase_request_manager,purchase_request.group_purchase_request_approver"
@@ -68,7 +68,7 @@
                     <field
                         name="state"
                         widget="statusbar"
-                        statusbar_visible="draft,to_approve,second_approve,third_approve,approved,done,rejected"
+                        statusbar_visible="draft,to_approve,approved,done,rejected"
                         statusbar_colors='{"approved":"blue"}'
                     />
                 </header>
