@@ -10,8 +10,7 @@
         'security/security.xml',
         'views/hr_view.xml',
         'report/payslip_report.xml',
-
-        # 'data/ir_cron_data.xml',
+        'data/ir_cron_data.xml',
     ],
     'installable': True,
     'application': True,
