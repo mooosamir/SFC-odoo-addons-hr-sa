@@ -1,0 +1,1107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saudi_hr_eos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-24 12:07+0000\n"
+"PO-Revision-Date: 2022-06-24 12:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "%s's EOS is already Generated."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "%s's EOS is already in Generated."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_form
+msgid ""
+"<span>\n"
+"                            Report shows all the employee which has active contract!\n"
+"                        </span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>, till</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>, was an employee for us as</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>Department from</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid ""
+"<span>His employment with us was ended by his resignation and we confirm "
+"that he has been released without any obligations towards us.</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>Subject: Service Certificate</span><br/><br/>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid ""
+"<span>This certificate has been issued upon his request without any "
+"responsibility against us.</span><br/><br/>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>This is to certify that</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>To Whom It May Concern</span><br/><br/>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>Yours sincerely,</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid ""
+"<span>_______________________</span><br/>\n"
+"                        <span>Administration Manager</span><br/>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "<span>in</span>"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Accounting"
+msgstr "الحسابات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_needaction
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.eos_method_view_form_new
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Annual Leave Account"
+msgstr "حساب الاجازات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_job__annual_leave_rate
+msgid "Annual Leave Rate"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__user_approve
+msgid "Approval by"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Approve"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__date_approve
+msgid "Approve Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__accepted
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "Approved"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__eos_details__compute_at_date__specific_date
+msgid "At a Specific Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_attachment_count
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Calculate EOS"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__campaign_id
+msgid "Campaign"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_form
+msgid "Cancel"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_details__to_date
+msgid "Choose a date to get the EOS at that date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_details__compute_at_date
+msgid "Choose to analyze the current EOS or from a specific date in the past."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_form
+msgid "Choose your Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.actions.act_window,help:saudi_hr_eos.eos_all
+msgid "Click to register new EOS."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__company_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__company_id
+msgid "Company"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__compute_at_date
+msgid "Compute EOS"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__date_confirm
+msgid "Confirmation Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "Confirmed EOS"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__contract_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__contract_id
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Contract"
+msgstr "العقد"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_femaleqweb
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.emp_experience_letter_maleqweb
+msgid "Corresponding to:"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__create_uid
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__create_uid
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__create_date
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__create_date
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__eos_details__compute_at_date__current_date
+msgid "Current Date EOS"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__eos_date
+msgid "Date"
+msgstr "لتاريخ"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__date_approve
+msgid ""
+"Date of the Approval of the sheet eos. It's filled when the button Approve "
+"is pressed."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__date_valid
+msgid ""
+"Date of the acceptation of the sheet eos. It's filled when the button "
+"Validate is pressed."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__date_confirm
+msgid ""
+"Date of the confirmation of the sheet expense. It's filled when the button "
+"Confirm is pressed."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__type__death
+msgid "Death"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__department_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__department_id
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Department"
+msgstr "القسم"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__display_name
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__display_name
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__display_name
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_job__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__done
+msgid "Done"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.ui.menu,name:saudi_hr_eos.menu_eos_all
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_tree
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_tree_reporting
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "EOS"
+msgstr "نهاية الخدمة"
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Account Move"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_accept
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_accept
+msgid "EOS Approved"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Approved."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Cancelled."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_confirm
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_confirm
+msgid "EOS Confirmed"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Confirmed."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_new
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_new
+msgid "EOS Created"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model,name:saudi_hr_eos.model_eos_details
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "EOS Details"
+msgstr "تفاصيل نهايه الخدمة"
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_done
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_done
+msgid "EOS Done"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Draft."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.actions.act_window,name:saudi_hr_eos.eos_method_action
+#: model:ir.ui.menu,name:saudi_hr_eos.eos_method_menu
+msgid "EOS Method"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_cancel
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_cancel
+msgid "EOS Refused"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.actions.act_window,name:saudi_hr_eos.action_eos_details
+#: model:ir.ui.menu,name:saudi_hr_eos.menu_eos_details
+msgid "EOS Report"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "EOS Sheet"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,description:saudi_hr_eos.mt_employee_eos_validate
+msgid "EOS Validated"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "EOS Validated."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__to_date
+msgid "EOS at Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__employee_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__employee_id
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Employee Details"
+msgstr "بيانات الموظف"
+
+#. module: saudi_hr_eos
+#: model:ir.actions.act_window,name:saudi_hr_eos.eos_all
+#: model:ir.model,name:saudi_hr_eos.model_hr_employee_eos
+#: model:ir.ui.menu,name:saudi_hr_eos.menu_eos_label
+msgid "End of Service Indemnity (EOS)"
+msgstr "تعويط نهاية الخدمة"
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/wizard/eos_details.py:0
+#, python-format
+msgid "End of Service Reporting (EOS)"
+msgstr "نهاية الخدمة"
+
+#. module: saudi_hr_eos
+#: model:ir.actions.report,name:saudi_hr_eos.action_empexperience_letter_femaleqweb
+msgid "Experience Letter for Female"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.actions.report,name:saudi_hr_eos.action_empexperience_letter_maleqweb
+msgid "Experience Letter for Male"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Extra Information"
+msgstr "معلومات اضافية"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_follower_ids
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_channel_ids
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_partner_ids
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__journal_id
+msgid "Force Journal"
+msgstr "اليومية"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Free Notes"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Generate Accounting Entries"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Group By..."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model,name:saudi_hr_eos.model_hr_job
+msgid "HR Job"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_job__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_needaction
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_unread
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_needaction
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_has_error
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_has_sms_error
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_has_error
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_is_follower
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__job_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__job_id
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Job"
+msgstr "الوظيفة"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__date_of_join
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__date_of_join
+msgid "Joining Date"
+msgstr "تاريخ الانضمام"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Joining Month"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details____last_update
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method____last_update
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos____last_update
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_job____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__write_uid
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__write_uid
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__write_date
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__write_date
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__annual_leave_amount
+msgid "Leave Balance"
+msgstr "رصيد الاجازة"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__date_of_leave
+msgid "Leaving Date"
+msgstr "تاريخ المغادرة"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__account_move_id
+msgid "Ledger Posting"
+msgstr "القيد"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__loan_account_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__loan_account
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__loan_account_id
+msgid "Loan Account"
+msgstr "حساب السلف"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_main_attachment_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__medium_id
+msgid "Medium"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_has_error
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_ids
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_eos_details_filter
+msgid "Month"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__name
+msgid "Name"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__draft
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "New"
+msgstr "جديد"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "New EOS"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__duration_days
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__duration_days
+msgid "No of Days"
+msgstr "عدد الايام"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__duration_months
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__duration_months
+msgid "No of Months"
+msgstr "عدد الاشهر"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__duration_years
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__duration_years
+msgid "No. of Years"
+msgstr "عدد السنوات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__note
+msgid "Note"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_needaction_counter
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_has_error_counter
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_needaction_counter
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_has_error_counter
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__message_unread_counter
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Open Accounting Entries"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__other_allowance
+msgid "Other Allowance"
+msgstr "اضافات اخرى"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__other_allowance_account_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__other_allowance_account
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__other_allowance_account_id
+msgid "Other Allowance Account"
+msgstr "حساب الاضافات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__other_deduction_account_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__other_deduction_account
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__other_deduction_account_id
+msgid "Other Deduction Account"
+msgstr "حساب الخصومات"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__others
+msgid "Others"
+msgstr "إخرى"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__payment_method
+msgid "Payment Method"
+msgstr "طريقة السداد"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__payslip_id
+msgid "Payslip"
+msgstr "المسير"
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please configure %s journal's credit account."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please configure Journal before calculating EOS."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please configure employee EOS for journal."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please define contract for selected Employee!"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please define employee date of join!"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "Please define employee date of leaving!"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Refuse"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__cancelled
+msgid "Refused"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__remaining_amount_loan
+msgid "Remaining Amount Loan"
+msgstr "متبقي السلفة"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__remaining_leave
+msgid "Remaining Leave"
+msgstr "متبقي الاجازة"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__remaining_leave_account_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__remaining_leave_account_id
+msgid "Remaining Leave Account"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__type__resignation
+msgid "Resignation"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_form
+msgid "Retrieve the End of Service Indemnity (EOS)"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_has_sms_error
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__current_month_salary
+msgid "Salary of Current month"
+msgstr "راتب الشهر الحالي"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Set to Draft"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__source_id
+msgid "Source"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:mail.message.subtype,name:saudi_hr_eos.mt_employee_eos_validate
+msgid "Stage Changed"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__state
+msgid "Status"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Submit"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__type__termination
+msgid "Termination"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "The employee must have a home address."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "The employee must have a payable account set on his home address."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__journal_id
+msgid "The journal used when the eos is done."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__ticket_account_id
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__ticket_account
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__ticket_account_id
+msgid "Ticket Account"
+msgstr "حساب التذاكر"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__ticket_value
+msgid "Ticket Value"
+msgstr "قيمة التذكرة"
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "To Approve"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__payable_eos
+msgid "Total Amount"
+msgstr "إجمالي"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_details__total_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__total_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_eos_details_tree_reporting
+msgid "Total Award"
+msgstr "الاجمالي"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__calc_year
+msgid "Total Years"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__type
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_hr_employee_eos_filter
+msgid "Type"
+msgstr "النوع"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_unread
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__message_unread_counter
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__user_id
+msgid "User"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__user_id
+msgid "User Created"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model_terms:ir.ui.view,arch_db:saudi_hr_eos.view_employee_eos_form
+msgid "Validate"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__validate
+msgid "Validated"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__date_valid
+msgid "Validation Date"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__user_valid
+msgid "Validation by"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields.selection,name:saudi_hr_eos.selection__hr_employee_eos__state__confirm
+msgid "Waiting Approval"
+msgstr "بإنتظار التاكيد"
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_eos_method__website_message_ids
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_eos_method__website_message_ids
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,help:saudi_hr_eos.field_hr_employee_eos__state
+msgid ""
+"When the eos request is created the status is 'Draft'.\n"
+" It is confirmed by the user and request is sent to finance, the status is 'Waiting Confirmation'.        \n"
+"If the finance accepts it, the status is 'Accepted'."
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model.fields,field_description:saudi_hr_eos.field_hr_employee_eos__year_id
+msgid "Year"
+msgstr "العام"
+
+#. module: saudi_hr_eos
+#: code:addons/saudi_hr_eos/models/hr_employee_eos.py:0
+#, python-format
+msgid "You cannot remove the record which is in %s state!"
+msgstr ""
+
+#. module: saudi_hr_eos
+#: model:ir.model,name:saudi_hr_eos.model_eos_method
+msgid "eos.method"
+msgstr ""
