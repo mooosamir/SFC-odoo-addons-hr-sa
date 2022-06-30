@@ -1,0 +1,811 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_time_off_installment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-25 16:20+0000\n"
+"PO-Revision-Date: 2022-06-25 16:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__access_warning
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_needaction
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_exception_decoration
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_state
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_type_icon
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__additional_value
+msgid "Additional Value"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "Additional Value must n't be less than zero."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__advance_salary_ids
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+#, python-format
+msgid "Advance Salary"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__advance_salary_count
+msgid "Advance Salary Count"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__state__create_advance
+msgid "Advance Salary Created"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_advance_salary
+msgid "Advance Salary Request"
+msgstr "طلبات الرواتب اللمقدمة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__amount
+msgid "Amount"
+msgstr "مبلغ"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_type__is_annual_leave
+msgid "Annual Leave"
+msgstr "اجازة سنوية"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_attachment_count
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__balance
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__installment_type__balance
+msgid "Balance"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__method_line__type__basic
+msgid "Basic"
+msgstr "الاساسي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__campaign_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__campaign_id
+msgid "Campaign"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__state__cancel
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.view_create_journal_entry_wizard_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__company_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__state__confirm
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: hr_time_off_installment
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+msgid "Create Advance Salary"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#: model:ir.actions.act_window,name:hr_time_off_installment.action_create_journal_entry_wizard
+#: model:ir.model,name:hr_time_off_installment.model_create_journal_entry
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.view_create_journal_entry_wizard_form
+#, python-format
+msgid "Create Journal Entry"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__create_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__create_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__create_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__create_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__create_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__create_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__contract_id
+msgid "Current Contract"
+msgstr "العقد الحالي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__contract_id
+msgid "Current contract of the employee"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__access_url
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__debit_account_id
+msgid "Debit Account"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__deduction_value
+msgid "Deduction Value"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "Deduction Value must n't be less than zero."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__credit_account_id
+msgid "Default Account"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_move__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_advance_salary__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_contract__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_allocation__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_type__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__display_name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__due_amount
+msgid "Due Amount"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_follower_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_channel_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_partner_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__activity_type_icon
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__method_line__type__house_rent_allowance
+msgid "House Rent Allowance"
+msgstr "بدل السكن"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_move__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_advance_salary__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_contract__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_allocation__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_type__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_payslip__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_exception_icon
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__activity_exception_icon
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى استثناء النشاط"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_needaction
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_unread
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_needaction
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_has_error
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_has_sms_error
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_has_error
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_bank_statement_line__installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_move__installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_payment__installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__installment
+msgid "Installment"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.actions.act_window,name:hr_time_off_installment.installment_calculation_method_action
+#: model:ir.model,name:hr_time_off_installment.model_installment_calculation_method
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__installment_calculation_method
+#: model:ir.ui.menu,name:hr_time_off_installment.installment_calculation_method_menu
+msgid "Installment Calculation Method"
+msgstr "طرق احتساب بدل الاجازة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__installment_method_ids
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.installment_calculation_method_view_form_new
+msgid "Installment Method"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.actions.act_window,name:hr_time_off_installment.timeoff_installment_action
+#: model:ir.model,name:hr_time_off_installment.model_timeoff_installment
+#: model:ir.ui.menu,name:hr_time_off_installment.timeoff_installment_menu
+msgid "Installment Transaction"
+msgstr "اتسبدال الاجازات"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__installment_type
+msgid "Installment Type"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_is_follower
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave__is_paid
+msgid "Is Paid"
+msgstr "مدفوعة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__job_id
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__journal_id
+msgid "Journal"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+msgid "Journal Entries"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#: model:ir.model,name:hr_time_off_installment.model_account_move
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__journal_entry_ids
+#, python-format
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__journal_entry_count
+msgid "Journal Entry Count"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_account_move____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_advance_salary____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_contract____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_allocation____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave_type____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_payslip____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line____last_update
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__write_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__write_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__write_uid
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__write_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__write_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__write_date
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_time_off_installment
+#: model:hr.work.entry.type,name:hr_time_off_installment.work_entry_type_leave_pay
+msgid "Leave Pay In Advance"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_main_attachment_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__medium_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__medium_id
+msgid "Medium"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_has_error
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__my_activity_date_deadline
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__hr_leave__pay_in_advance__no
+msgid "NO"
+msgstr "لا"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__name
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_date_deadline
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_summary
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_type_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__number_of_days
+msgid "Number Of Days"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_needaction_counter
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_has_error_counter
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__message_unread_counter
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__other_allowances_credit_id
+msgid "Other Allowances Credit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__other_allowances_debit_id
+msgid "Other Allowances Debit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__other_deductions_credit_id
+msgid "Other Deductions Credit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__other_deductions_debit_id
+msgid "Other Deductions Debit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_create_journal_entry__partner_id
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_leave__pay_in_advance
+msgid "Pay In Advance"
+msgstr "مدفوعة مسبقا"
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_payslip
+msgid "Pay Slip"
+msgstr "إيصال المرتب"
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "Please Add Number of Days For Transaction greater than Zero."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__access_url
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__name
+msgid "Reference"
+msgstr "رقم الإشارة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__activity_user_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_has_sms_error
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__access_token
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.view_create_journal_entry_wizard_form
+msgid "Selected journal and partner will be create journal entry."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+msgid "Set To Draft"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__source_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__source_id
+msgid "Source"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__state
+msgid "State"
+msgstr "المحافظة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__activity_state
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: hr_time_off_installment
+#: model:ir.model.constraint,message:hr_time_off_installment.constraint_hr_leave_allocation_duration_check
+msgid "The number of days must be greater than 0."
+msgstr "عدد الأيام يجب أن يكون أكبر من 0."
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__campaign_id
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__medium_id
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__source_id
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__ticket_credit_id
+msgid "Ticket Credit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__ticket_debit_id
+msgid "Ticket Debit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__ticket_value
+msgid "Ticket Value"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_leave
+msgid "Time Off"
+msgstr "الاجازات"
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_leave_allocation
+msgid "Time Off Allocation"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__time_off_credit_id
+msgid "Time Off Credit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__time_off_days
+msgid "Time Off Days"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__time_off_debit_id
+msgid "Time Off Debit"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__installment_type__time_off_request
+msgid "Time Off Request"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_hr_leave_type
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__time_off_type
+msgid "Time Off Type"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_hr_advance_salary__timeoff_installment
+msgid "Timeoff Installment"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__total_due
+msgid "Total Due"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__method_line__type__transport_allowance
+msgid "Transport Allowance"
+msgstr "بدل التنقل"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_method_line__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__activity_exception_decoration
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_unread
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__message_unread_counter
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__user_id
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__user_id
+msgid "User Created"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__timeoff_installment__state__validate
+#: model_terms:ir.ui.view,arch_db:hr_time_off_installment.timeoff_installment_view_form_new
+msgid "Validate"
+msgstr "اعتماد"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_installment_calculation_method__website_message_ids
+#: model:ir.model.fields,field_description:hr_time_off_installment.field_timeoff_installment__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields,help:hr_time_off_installment.field_installment_calculation_method__website_message_ids
+#: model:ir.model.fields,help:hr_time_off_installment.field_timeoff_installment__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع"
+
+#. module: hr_time_off_installment
+#: model:ir.model.fields.selection,name:hr_time_off_installment.selection__hr_leave__pay_in_advance__yes
+msgid "YES"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "You can't confirm Transaction that time off days is zero."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "You cannot delete a Transaction which is confirm or validate."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: model:ir.model,name:hr_time_off_installment.model_method_line
+msgid "method.line"
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "number of days must be less than or equal current balance ."
+msgstr ""
+
+#. module: hr_time_off_installment
+#: code:addons/hr_time_off_installment/models/hr_time_off_Installment.py:0
+#, python-format
+msgid "number of days must n't be less than zero."
+msgstr ""

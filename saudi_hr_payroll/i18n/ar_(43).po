@@ -1,0 +1,236 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_customization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-28 12:30+0000\n"
+"PO-Revision-Date: 2022-06-28 12:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_customization
+#: model:mail.template,report_name:hr_customization.send_payslip_email_id
+msgid "${('Payslip- %s' % (object.name))}"
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.report_payslip
+msgid "<strong>Computed on </strong>"
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.report_payslip
+msgid "<strong>Marital Status</strong>"
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.report_payslip
+msgid "<strong>Pay Period</strong>"
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.report_payslip
+msgid "<strong>Person in charge</strong>"
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.report_payslip
+msgid "<strong>Secrit Num</strong>"
+msgstr ""
+
+#. module: hr_customization
+#: model:mail.template,body_html:hr_customization.send_payslip_email_id
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td align=\"center\">\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                                <!-- HEADER -->\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\">\n"
+"                                                    <span style=\"font-size: 10px;\">Your Payslip</span>\n"
+"                                                    <br/>\n"
+"\n"
+"\n"
+"                                                    <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                        ${object.name}\n"
+"                                                    </span>\n"
+"\n"
+"\n"
+"                                                </td>\n"
+"                                                <td valign=\"middle\" align=\"right\">\n"
+"                                                    <img src=\"/logo.png?company=${object.company_id.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${object.company_id.name}\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        "
+msgstr ""
+
+#. module: hr_customization
+#: model_terms:ir.ui.view,arch_db:hr_customization.hr_payslip_view_inherit
+msgid "Add Notes......"
+msgstr ""
+
+#. module: hr_customization
+#: code:addons/hr_customization/models/hr.py:0
+#, python-format
+msgid "Cannot send email: Employee %s has no email address."
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract__cla
+msgid "Class"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields.selection,name:hr_customization.selection__hr_contract__cla__club_emp
+msgid "Club Employees"
+msgstr ""
+
+#. module: hr_customization
+#: model:res.groups,name:hr_customization.group_confirm_contract
+#: model_terms:ir.ui.view,arch_db:hr_customization.hr_contract_view_inherit
+msgid "Confirm Contract"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract__display_name
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__display_name
+#: model:ir.model.fields,field_description:hr_customization.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_customization.field_hr_payslip__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_customization
+#: model:ir.model,name:hr_customization.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_customization
+#: model:ir.model,name:hr_customization.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: hr_customization
+#: model:mail.template,subject:hr_customization.send_payslip_email_id
+msgid "Employee Payslip"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.actions.server,name:hr_customization.expiration_contract_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_customization.expiration_contract_cron
+#: model:ir.cron,name:hr_customization.expiration_contract_cron
+#: model:res.groups,name:hr_customization.group_expiration_contract
+msgid "Expiration Contract"
+msgstr ""
+
+#. module: hr_customization
+#: code:addons/hr_customization/models/hr.py:0
+#, python-format
+msgid "Firstly Please Confirm Contract"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract__id
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__id
+#: model:ir.model.fields,field_description:hr_customization.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_customization.field_hr_payslip__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract__is_confirm
+msgid "Is Confirm"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract____last_update
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire____last_update
+#: model:ir.model.fields,field_description:hr_customization.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_customization.field_hr_payslip____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_contract_expire__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_payslip__notes
+msgid "Notes"
+msgstr ""
+
+#. module: hr_customization
+#: model:mail.activity.type,name:hr_customization.schdule_activity_expire_id
+msgid "Notification Expire Contract"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.ui.menu,name:hr_customization.employee_menu_hr_payroll
+msgid "Other Allowance/Deduction"
+msgstr ""
+
+#. module: hr_customization
+#: model:res.groups,name:hr_customization.group_other_duduction
+msgid "Other Allowances/Deduction"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model,name:hr_customization.model_hr_payslip
+msgid "Pay Slip"
+msgstr "إيصال المرتب"
+
+#. module: hr_customization
+#: model:ir.model.fields,field_description:hr_customization.field_hr_employee__secrit_number
+msgid "Secrit Number"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model.fields.selection,name:hr_customization.selection__hr_contract__cla__solution_emp
+msgid "Solution Employees"
+msgstr ""
+
+#. module: hr_customization
+#: model:ir.model,name:hr_customization.model_hr_contract_expire
+msgid "hr.contract.expire"
+msgstr ""
