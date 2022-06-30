@@ -45,6 +45,14 @@
                 <span t-field="o.notes"/>
             </p>
         </xpath>
+        <xpath expr="//p[@t-if='o.net_wage &gt;= 0']" position="replace">
+            <p t-if="o.net_wage &gt;= 0">Total to pay on <td><span t-field="o.employee_id.bank_account_id"/></td>, bank account : <td><span t-field="o.net_wage"/></td></p>
+
+        </xpath>
+
+        <xpath expr="//h2[@t-field='o.name']" position="replace">
+             <h2 t-if="o.name != False" t-esc="o.name.split('-')[0]+' - '+o.name.split('-')[2]"/>
+        </xpath>
 
     </template>
 </odoo>
