@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_payment_view_form_inherit" model="ir.ui.view">
+        <field name="name">account.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="replace">
+                <field name="state"  widget="statusbar" statusbar_visible="draft,submitted,validated,gm_approved,ceo_approved,posted"/>
+            </xpath>
+            <xpath expr="//button[@name='action_post']" position="attributes">
+                <attribute name="groups">account_confirmation_step.consultant_group</attribute>
+                <attribute name="string">Consultancy Approve</attribute>
+                <attribute name="attrs">{'invisible': [('state', '!=', 'ceo_approved')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_post']" position="before">
+                <button name="action_submitted" type="object" string="Submit" class="oe_highlight"
+                        attrs="{'invisible':[('state','!=','draft')]}"/>
+
+                <button name="action_validated" type="object" string="Validate"
+                        attrs="{'invisible':[('state','!=','submitted')]}"
+                        groups="account_confirmation_step.general_manager_group,account_confirmation_step.ceo_group,account_confirmation_step.consultant_group,account.group_account_manager"
+                        class="oe_highlight"/>
+
+                <button name="action_GM_approve" type="object" string="General Manager Approve"
+                        attrs="{'invisible':[('state','!=','validated')]}"
+                        groups="account_confirmation_step.general_manager_group,account_confirmation_step.ceo_group,account_confirmation_step.consultant_group"
+                        class="oe_highlight"/>
+
+                <button name="action_CEO_approve" type="object" string="CEO Approve"
+                        attrs="{'invisible':[('state','!=','gm_approved')]}"
+                        groups="account_confirmation_step.ceo_group,account_confirmation_step.consultant_group"
+                        class="oe_highlight"/>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
