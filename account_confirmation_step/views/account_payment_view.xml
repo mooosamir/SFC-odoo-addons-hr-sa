@@ -8,6 +8,10 @@
             <xpath expr="//field[@name='state']" position="replace">
                 <field name="state"  widget="statusbar" statusbar_visible="draft,submitted,validated,gm_approved,ceo_approved,posted"/>
             </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', '=', 'cancel')]}</attribute>
+
+            </xpath>
             <xpath expr="//button[@name='action_post']" position="attributes">
                 <attribute name="groups">account_confirmation_step.consultant_group</attribute>
                 <attribute name="string">Consultancy Approve</attribute>

@@ -5,9 +5,20 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
+
+
+
+            <xpath expr="//field[@name='invoice_date']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="attrs">{'readonly':[('state','=','posted')]}</attribute>
+            </xpath>
             <xpath expr="//field[@name='state']" position="replace">
                 <field name="state_a" attrs="{'invisible':[('move_type','=','entry')]}" widget="statusbar" statusbar_visible="draft,submitted,validated,gm_approved,ceo_approved,posted"/>
                 <field name="state" attrs="{'invisible':[('move_type','!=','entry')]}" widget="statusbar" statusbar_visible="draft,posted"/>
+            </xpath>
+
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                 <attribute name="attrs">{'invisible':['|', ('id', '=', False), ('state', '=', 'cancel')]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_post'][2]" position="attributes">
                 <attribute name="groups">account_confirmation_step.consultant_group</attribute>

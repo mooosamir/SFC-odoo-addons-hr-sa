@@ -17,7 +17,7 @@ class AccountMove(models.Model):
             ('cancel', 'Cancelled'),
         ], string='Status', required=True, readonly=True, copy=False, tracking=True,
         default='draft')
-    state_a = fields.Selection(related='state')
+    state_a = fields.Selection(related='state',tracking=False)
 
     def action_submitted(self):
         for rec in self:
@@ -34,9 +34,12 @@ class AccountMove(models.Model):
 
     def action_CEO_approve(self):
         for rec in self:
-            if rec.amount_total < rec.company_id.account_limit_amount:
+            if rec.company_id.use_account_limit_amount:
+                if rec.amount_total < rec.company_id.account_limit_amount:
+                    rec.action_post()
+                elif rec.amount_total >= rec.company_id.account_limit_amount:
+                    rec.write({'state' : 'ceo_approved'})
+            else:
                 rec.action_post()
-            elif rec.amount_total > rec.company_id.account_limit_amount:
-                rec.write({'state' : 'ceo_approved'})
 
 
