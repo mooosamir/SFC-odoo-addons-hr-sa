@@ -34,8 +34,7 @@
 
             </xpath>
             <xpath expr="//button[@name='button_cancel']" position="attributes">
-                <attribute name="states">draft,to approve,sent,purchase,first_approve,second_approve,submit
-                </attribute>
+                <attribute name="states">draft,to approve,sent,purchase,first_approve,second_approve,submit</attribute>
 
             </xpath>
 
