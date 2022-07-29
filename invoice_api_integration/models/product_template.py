@@ -12,6 +12,7 @@ class ProductTemplate(models.Model):
                                         ('5', 'Tickets'),
                                         ('tax', 'TAX'),
                                         ('charge', 'Service Charge'),
+                                        ('bank_service', 'Bank Service Charge'),
                                         ('shipping', 'Shipping Fees'),
                                         ('weapon_overage', 'Weapon Overage')
                                     ], required=False, )

@@ -15,6 +15,7 @@
             <field name="amount_untaxed" position="before">
                  <field name="service_charge"/>
                  <field name="shipping_fees"/>
+                 <field name="weapon_overage"/>
             </field>
         </field>
     </record>

@@ -9,6 +9,7 @@ class AccountInvoice(models.Model):
     invoice_ref = fields.Char(string="", required=False, )
     service_charge = fields.Float(string="",  required=False, )
     shipping_fees = fields.Float(string="",  required=False, )
+    weapon_overage = fields.Float(string="",  required=False, )
     invoice_link = fields.Char(string="", required=False, )
     is_ecommerce = fields.Boolean(string="")
 
