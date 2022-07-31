@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+from odoo.tools.date_utils import datetime
 from odoo import http
 from odoo.http import request
 
@@ -30,10 +31,12 @@ def check_authentication(func):
 
 class HttpRequestApi(http.Controller):
 
-    def __init__(self):
-        self._partner_model = request.env['res.partner']
+    @staticmethod
+    def _get_analytic_account(product_type: str) -> int:
+        return request.env['account.analytic.account'].sudo().search([('product_type', '=', product_type)], limit=1).id
 
-    def _get_or_create_client(self, client_data):
+    @staticmethod
+    def _get_or_create_client(client_data) -> int:
         partner_obj = request.env['res.partner'].sudo()
 
         client_id = partner_obj.search([('client_id', '=', client_data.get('Client_ID'))])
@@ -66,8 +69,6 @@ class HttpRequestApi(http.Controller):
             client = kw.get('Client')
             items_lines = kw.get('Items')
             bank_service_lines = kw.get('Total_Splits')
-            Amount = kw.get('Amount')
-            Total = kw.get('Total')
 
             # Request Info
             order = request.env['account.move'].sudo()
@@ -88,7 +89,7 @@ class HttpRequestApi(http.Controller):
                     [('product_type', '=', line.get('Item_Category'))], limit=1)
 
                 vals = (0, 0, {
-                    'name': f"{line.get('Item_Name')}, Vendor: {line.get('Vendor_Name')}",
+                    'name': f"ID: {line.get('Item_ID')}, Desc: {line.get('Item_Name')}, Vendor: {line.get('Vendor_Name')}",
                     'product_id': product_id.id if product_id else False,
                     'analytic_account_id': analytic_account_id.id if analytic_account_id else False,
                     'account_id': account_id.id,
@@ -101,10 +102,12 @@ class HttpRequestApi(http.Controller):
             for bank_line in bank_service_lines:
                 product_id = request.env['product.product'].sudo().search([('product_type', '=', 'bank_service')],
                                                                           limit=1)
+
                 vals = (0, 0, {
                     'name': f"{bank_line.get('Vendor_ID')},{bank_line.get('Vendor_Name')}",
                     'product_id': product_id.id if product_id else False,
                     'account_id': account_id.id,
+                    'analytic_account_id': self._get_analytic_account('bank_service'),
                     'quantity': bank_line.get('Quantity', 1),
                     'price_unit': bank_line.get('Bank_Service'),
                 })
@@ -128,6 +131,7 @@ class HttpRequestApi(http.Controller):
                     'product_id': request.env['product.product'].sudo().search(
                         [('product_type', '=', 'shipping')], limit=1).id,
                     'account_id': account_id.id,
+                    'analytic_account_id': self._get_analytic_account('shipping'),
                     'quantity': kw.get('Shipping_Fees').get('quantity', 1),
                     'price_unit': kw.get('Shipping_Fees').get('price'),
                 })
@@ -139,6 +143,7 @@ class HttpRequestApi(http.Controller):
                     'product_id': request.env['product.product'].sudo().search(
                         [('product_type', '=', 'charge')], limit=1).id,
                     'account_id': account_id.id,
+                    'analytic_account_id': self._get_analytic_account('charge'),
                     'quantity': kw.get('Service_Charge').get('quantity', 1),
                     'price_unit': kw.get('Service_Charge').get('price'),
                 })
@@ -151,6 +156,7 @@ class HttpRequestApi(http.Controller):
                     'product_id': request.env['product.product'].sudo().search(
                         [('product_type', '=', 'weapon_overage')], limit=1).id,
                     'account_id': account_id.id,
+                    'analytic_account_id': self._get_analytic_account('weapon_overage'),
                     'quantity': weapon_overage.get('quantity', 1),
                     'price_unit': weapon_overage.get('price'),
                 })
@@ -177,7 +183,6 @@ class HttpRequestApi(http.Controller):
             }
 
             order_id = order.create(order_val)
-            print("ORDER ->", order_id)
             order_id.action_post()
             if order_id:
                 return {
@@ -198,26 +203,47 @@ class HttpRequestApi(http.Controller):
                 "errors": [str(err.args)],
                 "model": None}
 
+
+class InvoicePaymentApi(http.Controller):
+
     @http.route('/api/order/payment', auth='public', type='json', csrf=False)
     def order_invoice_payment(self, *args, **kwargs):
         response = {"isSubmittedSuccessfully": True}
 
         token_id = request.httprequest.headers.get('token', False)
-        invoice_token = request.env['ir.config_parameter'].sudo().get_param('invoice_api_integration.invoice_token',
-                                                                            False)
-        if (invoice_token or token_id) and token_id != invoice_token:
+        auth_token = request.env['ir.config_parameter'].sudo().get_param('invoice_api_integration.invoice_token',
+                                                                         False)
+        if (auth_token or token_id) and token_id != auth_token:
             return {
                 "isSubmitted": True,
                 "isSubmittedSuccessfully": False,
                 "errors": ["You can't access this API Please Check Your Token"],
                 "model": None}
-        default_payment_journal = request.env['account.journal'].sudo().search(
-            [('is_ecommerce_default_payment_account', '=', True)])
-        print('Journal :', default_payment_journal)
+
         try:
-            print(kwargs)
-            # TODO: create payment here
-            pass
+            payment_reference = kwargs.get('payment_reference')
+            invoice_number = kwargs.get('invoice_number')
+            default_payment_journal = request.env['account.journal'].sudo().search(
+                [('is_ecommerce_default_payment_account', '=', True)])
+
+            invoice = request.env['account.move'].sudo().search([('name', '=', invoice_number)])
+
+            values = {
+                'payment_date': datetime.now(),
+                'payment_type': 'inbound',
+                'partner_type': 'customer',
+                'payment_method_id': 1,
+                'amount': invoice.amount_residual,
+                'currency_id': invoice.currency_id.id,
+                'journal_id': default_payment_journal.id,
+                'communication': f'{invoice_number} ({payment_reference})'
+            }
+
+            request.env['account.payment.register'].sudo().with_context(
+                active_model='account.move', active_ids=invoice.ids).create(
+                values)._create_payments()
+            invoice.write({'invoice_status': 'paid'})
+
         except Exception as err:
             print(err)
             response = {

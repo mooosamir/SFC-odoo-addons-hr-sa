@@ -4,14 +4,14 @@ from odoo import api, fields, models
 class AccountInvoice(models.Model):
     _inherit = 'account.move'
 
-    invoice_status = fields.Selection(string="", selection=[('wait', 'Waiting'), ('achieve', 'achieved')], required=False, )
-    order_date = fields.Datetime(string="", required=False, )
-    invoice_ref = fields.Char(string="", required=False, )
-    service_charge = fields.Float(string="",  required=False, )
-    shipping_fees = fields.Float(string="",  required=False, )
-    weapon_overage = fields.Float(string="",  required=False, )
-    invoice_link = fields.Char(string="", required=False, )
-    is_ecommerce = fields.Boolean(string="")
+    invoice_status = fields.Selection(selection=[('wait', 'Waiting'), ('paid', 'Paid')], required=False)
+    order_date = fields.Datetime(required=False)
+    invoice_ref = fields.Char(required=False)
+    service_charge = fields.Float(required=False)
+    shipping_fees = fields.Float(required=False)
+    weapon_overage = fields.Float(required=False)
+    invoice_link = fields.Char(required=False)
+    is_ecommerce = fields.Boolean()
 
     # @api.depends(
     #     'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
