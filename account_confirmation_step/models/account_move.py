@@ -34,12 +34,17 @@ class AccountMove(models.Model):
 
     def action_CEO_approve(self):
         for rec in self:
-            if rec.company_id.use_account_limit_amount:
-                if rec.amount_total < rec.company_id.account_limit_amount:
-                    rec.action_post()
-                elif rec.amount_total >= rec.company_id.account_limit_amount:
-                    rec.write({'state' : 'ceo_approved'})
-            else:
-                rec.action_post()
+        #     if rec.company_id.use_account_limit_amount:
+        #         if rec.amount_total < rec.company_id.account_limit_amount:
+        #             rec.action_post()
+        #         elif rec.amount_total >= rec.company_id.account_limit_amount:
+        #             rec.write({'state' : 'ceo_approved'})
+        #     else:
+        #         rec.action_post()
+
+            if rec.amount_total < rec.company_id.sudo().po_double_validation_amount:
+                rec.write({"state": "posted"})
+            elif rec.amount_total >= rec.company_id.sudo().po_double_validation_amount:
+                rec.write({'state': 'ceo_approved'})
 
 
