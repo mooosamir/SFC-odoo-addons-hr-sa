@@ -263,6 +263,7 @@ class HrEmployeeEos(models.Model):
                 annual_leave_amount = (wages / 30) * remaining_leaves
                 eos.write({'total_eos': payable_eos, 'annual_leave_amount': annual_leave_amount,
                            'remaining_leave': remaining_leaves})
+            eos.write({'total_eos': payable_eos})
             return True
 
     @api.onchange('employee_id', 'eos_date')

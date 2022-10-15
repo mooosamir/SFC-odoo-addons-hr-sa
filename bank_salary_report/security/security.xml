@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record id="bank_file_category" model="ir.module.category">
+            <field name="name">Bank Salary Report</field>
+
+        </record>
+
+        <record id="bank_file_user_id" model="res.groups">
+            <field name="name">Bank Salaries</field>
+            <field name="category_id" ref="bank_file_category"/>
+
+        </record>
+
+    </data>
+</odoo>

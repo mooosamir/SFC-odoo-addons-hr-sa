@@ -9,6 +9,14 @@ from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 from dateutil.relativedelta import relativedelta
 
+class HrEmployeePublic(models.Model):
+    _inherit = 'hr.employee.public'
+    address_home_id = fields.Many2one(
+        'res.partner', 'Address', help='Enter here the private address of the employee, not the one linked to your company.',
+        groups="hr.group_hr_user", tracking=True,
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+
+
 
 
 class HrLoan(models.Model):
@@ -39,7 +47,7 @@ class HrLoan(models.Model):
     loan_amount = fields.Float('Loan Amount', digits='Account', required=True, track_visibility='onchange')
     duration = fields.Integer('Payment Duration(Months)', track_visibility='onchange', copy=False)
     deduction_amount = fields.Float('Deduction Amount', digits='Account', copy=False)
-    employee_id = fields.Many2one('hr.employee', 'Employee', required=True, default=lambda self: self.env['hr.employee'].get_employee())
+    employee_id = fields.Many2one('hr.employee', 'Employee', required=True, default=lambda self: self.env.user.employee_id.id)
     # branch_id = fields.Many2one('res.branch', 'Office', readonly=True, related='employee_id.branch_id', store=True)
     loan_type = fields.Selection([('salary', 'Loan Against Salary'), ('service', 'Loan Against Service')], string="Loan Type", required=True, default='salary')
     description = fields.Text('Purpose For Loan', required=True)

@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* payroll_batch_approve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-28 12:25+0000\n"
+"PO-Revision-Date: 2022-06-28 12:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields,help:payroll_batch_approve.field_hr_payslip__state
+msgid ""
+"* When the payslip is created the status is 'Draft'\n"
+"                \n"
+"* If the payslip is under verification, the status is 'Waiting'.\n"
+"                \n"
+"* If the payslip is confirmed then status is set to 'Done'.\n"
+"                \n"
+"* When user cancel payslip the status is 'Rejected'."
+msgstr ""
+"* عند إنشاء إيصال مرتب يكون في الحالة 'مسودة'\n"
+"                \n"
+"* إذا كان الإيصال قيد التحقق ينتقل للحالة 'انتظار'.\n"
+"                \n"
+"* اذا تم تأكيد الإيصال ينتقل للحالة 'مكتمل'.\n"
+"                \n"
+"* عنمما يقوم المستخدم بإلغاء إيصال المرتب تكون حالته 'مرفوض'."
+
+#. module: payroll_batch_approve
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_run_view_form_new
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: payroll_batch_approve
+#: code:addons/payroll_batch_approve/models/hr_payroll_run.py:0
+#, python-format
+msgid "Cannot cancel a batch that is done."
+msgstr ""
+
+#. module: payroll_batch_approve
+#: code:addons/payroll_batch_approve/models/hr_payroll_run.py:0
+#: code:addons/payroll_batch_approve/models/hr_payroll_run.py:0
+#: code:addons/payroll_batch_approve/models/hr_payroll_run.py:0
+#, python-format
+msgid "Cannot cancel a payslip that is done."
+msgstr ""
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip_run__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__done
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__close
+msgid "Done"
+msgstr "المنتهية"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__draft
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__first_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__first_approve
+#: model:res.groups,name:payroll_batch_approve.first_approve_batch
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_run_view_form_new
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_view_form_new
+msgid "First Approve"
+msgstr "اول موافقة "
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__gm_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__gm_approve
+#: model:res.groups,name:payroll_batch_approve.GM_approve_batch
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_run_view_form_new
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_view_form_new
+msgid "Fourth Approve"
+msgstr "رابع موافقة"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip__id
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip_run__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip____last_update
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip_run____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: payroll_batch_approve
+#: model:ir.model,name:payroll_batch_approve.model_hr_payslip
+msgid "Pay Slip"
+msgstr "إيصال المرتب"
+
+#. module: payroll_batch_approve
+#: model:ir.module.category,name:payroll_batch_approve.module_payslip_batch
+msgid "Payslip Batch Approver"
+msgstr ""
+
+#. module: payroll_batch_approve
+#: model:ir.model,name:payroll_batch_approve.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "دفعات إيصال المرتب"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__cancel
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__cancel
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__second_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__second_approve
+#: model:res.groups,name:payroll_batch_approve.second_approve_batch
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_run_view_form_new
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_view_form_new
+msgid "Second Approve"
+msgstr "ثاني موافقة"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip__state
+#: model:ir.model.fields,field_description:payroll_batch_approve.field_hr_payslip_run__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__ceo_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__ceo_approve
+#: model:res.groups,name:payroll_batch_approve.CEO_approve_batch
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_run_view_form_new
+#: model_terms:ir.ui.view,arch_db:payroll_batch_approve.hr_payslip_view_form_new
+msgid "Third Approve"
+msgstr "ثالث موافقة"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip_run__state__verify
+msgid "Verify"
+msgstr "اعتماد"
+
+#. module: payroll_batch_approve
+#: model:ir.model.fields.selection,name:payroll_batch_approve.selection__hr_payslip__state__verify
+msgid "Waiting"
+msgstr "في الانتظار"

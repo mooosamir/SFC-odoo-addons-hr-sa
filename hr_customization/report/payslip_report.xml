@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payslip" inherit_id="hr_payroll.report_payslip">
+        <xpath expr="//table[@name='employee-infos']" position="replace">
+            <table name="employee-infos" class="table table-sm table-bordered">
+                        <tr>
+                            <td class="w-25"><strong>Secrit Num</strong></td>
+                            <td class="w-25"><strong>Marital Status</strong></td>
+<!--                            <td class="w-25"><strong>Designation</strong></td>-->
+                            <td class="w-25"><strong>Pay Period</strong></td>
+                        </tr>
+                        <tr>
+                            <td><span t-field="o.employee_id.secrit_number"/></td>
+                            <td><span t-field="o.employee_id.marital"/></td>
+<!--                            <td><span t-field="o.employee_id.job_title"/></td>-->
+                            <td><span t-field="o.date_from"/> - <span t-field="o.date_to"/></td>
+                        </tr>
+                        <tr>
+                            <td><span t-field="o.employee_id.address_home_id.street"/></td>
+                            <td></td>
+                            <td></td>
+<!--                            <td></td>-->
+                        </tr>
+                        <tr>
+                            <td><span t-field="o.employee_id.address_home_id.city"/> <span t-field="o.employee_id.address_home_id.zip"/></td>
+                            <td><strong>Person in charge</strong></td>
+<!--                            <td><strong>Identification</strong></td>-->
+                            <td><strong>Computed on </strong></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td name="personne-in-charge"><t t-esc="o.employee_id.children"/></td>
+<!--                            <td><span t-field="o.employee_id.identification_id"/></td>-->
+                            <td><span t-field="o.compute_date"/></td>
+                        </tr>
+                    </table>
+
+        </xpath>
+        <xpath expr="//table[@name='employee-infos']/tr/td[1]" position="replace">
+            <td class="w-25"><strong>Secrit Num</strong></td>
+        </xpath>
+        <xpath expr="//table[@name='contract-infos']" position="after">
+            <br/>
+            <p class="text-left">
+                <span t-field="o.notes"/>
+            </p>
+        </xpath>
+        <xpath expr="//p[@t-if='o.net_wage &gt;= 0']" position="replace">
+            <p t-if="o.net_wage &gt;= 0">Total to pay on <td><span t-field="o.employee_id.bank_account_id"/></td>, bank account : <td><span t-field="o.net_wage"/></td></p>
+
+        </xpath>
+
+        <xpath expr="//h2[@t-field='o.name']" position="replace">
+             <h2 t-if="o.name != False" t-esc="o.name.split('-')[0]+' - '+o.name.split('-')[2]"/>
+        </xpath>
+
+    </template>
+</odoo>
