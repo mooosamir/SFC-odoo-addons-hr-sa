@@ -23,6 +23,11 @@
                 <attribute name="states">second_approve</attribute>
             </xpath>
 
+             <xpath expr="//button[@name='button_cancel']" position="attributes">
+                <attribute name="states"></attribute>
+                <attribute name="attrs">{'invisible':[('state','not in',['draft','to approve','sent','purchase','second_approve','first_approve'])]}</attribute>
+            </xpath>
+
         </field>
     </record>
 

@@ -33,15 +33,15 @@ class AccountPayment(models.Model):
 
     def action_cancel(self):
         super(AccountPayment, self).action_cancel()
-        self.write({"state":"cancel"})
+        self.write({"state": "cancel"})
 
     def action_post(self):
         super(AccountPayment, self).action_post()
-        self.write({"state":"posted"})
+        self.write({"state": "posted"})
 
     def action_draft(self):
         super(AccountPayment, self).action_post()
-        self.write({"state":"draft"})
+        self.write({"state": "draft"})
 
     def action_CEO_approve(self):
         for rec in self:
@@ -50,8 +50,8 @@ class AccountPayment(models.Model):
             #      rec.write({"state":"posted"})
             # elif rec.amount > rec.company_id.account_limit_amount:
             #   rec.write({'state' : 'ceo_approved'})
-
-            if rec.amount < rec.company_id.sudo().po_double_validation_amount:
-                rec.write({"state": "posted"})
-            elif rec.amount >= rec.company_id.sudo().po_double_validation_amount:
-                rec.write({'state': 'ceo_approved'})
+            if rec.company_id.use_account_limit_amount:
+                if rec.amount_total < rec.company_id.sudo().account_limit_amount:
+                    rec.write({"state": "posted"})
+                elif rec.amount_total >= rec.company_id.sudo().account_limit_amount:
+                    rec.write({'state': 'ceo_approved'})
