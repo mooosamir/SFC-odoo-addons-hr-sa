@@ -99,19 +99,19 @@ class HttpRequestApi(http.Controller):
                 lines.append(vals)
 
             # Bank Service Section
-            for bank_line in bank_service_lines:
-                product_id = request.env['product.product'].sudo().search([('product_type', '=', 'bank_service')],
-                                                                          limit=1)
-
-                vals = (0, 0, {
-                    'name': f"{bank_line.get('Vendor_ID')},{bank_line.get('Vendor_Name')}",
-                    'product_id': product_id.id if product_id else False,
-                    'account_id': account_id.id,
-                    'analytic_account_id': self._get_analytic_account('bank_service'),
-                    'quantity': bank_line.get('Quantity', 1),
-                    'price_unit': bank_line.get('Bank_Service'),
-                })
-                lines.append(vals)
+            # for bank_line in bank_service_lines:
+            #     product_id = request.env['product.product'].sudo().search([('product_type', '=', 'bank_service')],
+            #                                                               limit=1)
+            #
+            #     vals = (0, 0, {
+            #         'name': f"{bank_line.get('Vendor_ID')},{bank_line.get('Vendor_Name')}",
+            #         'product_id': product_id.id if product_id else False,
+            #         'account_id': account_id.id,
+            #         'analytic_account_id': self._get_analytic_account('bank_service'),
+            #         'quantity': bank_line.get('Quantity', 1),
+            #         'price_unit': bank_line.get('Bank_Service'),
+            #     })
+            #     lines.append(vals)
 
             # Tax Section
             if kw.get('Tax', False):
