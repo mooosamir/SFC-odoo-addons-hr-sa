@@ -108,8 +108,8 @@ class HttpRequestApi(http.Controller):
                     'product_id': product_id.id if product_id else False,
                     'account_id': account_id.id,
                     'analytic_account_id': self._get_analytic_account('bank_service'),
-                    'price_unit': bank_line.get('Quantity', 1),
-                    'quantity': bank_line.get('Bank_Service'),
+                    'quantity': bank_line.get('Quantity', 1),
+                    'price_unit': bank_line.get('Bank_Service'),
                 })
                 lines.append(vals)
 
