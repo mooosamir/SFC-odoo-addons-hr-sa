@@ -66,11 +66,11 @@ class HRContract(models.Model):
                 self.HRA = self.basic * 0.30
                 self.TA = self.basic * 0.1
 
-        elif self.cla == 'agree':
-            if self.wage > 0:
-                self.basic = self.wage
-                self.HRA = 0
-                self.TA = 0
+        # elif self.cla == 'agree':
+        #     if self.wage > 0:
+        #         self.basic = self.wage
+        #         self.HRA = 0
+        #         self.TA = 0
 
 
         elif self.cla == 'solution_emp':
