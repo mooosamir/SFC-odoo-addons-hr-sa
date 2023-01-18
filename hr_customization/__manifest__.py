@@ -2,7 +2,7 @@
 {
     'name': 'Hr Customization',
     'category': 'Hr Customization',
-    'summary': 'Hr Customization',
+    'summary': 'Hr  Customization',
     'author': "erp-bank",
     'website': "www.erp-bank.com",
     'depends': ['hr', 'hr_holidays','hr_contract','saudi_hr','saudi_hr_payroll','hr_payroll','saudi_hr_contract'],
