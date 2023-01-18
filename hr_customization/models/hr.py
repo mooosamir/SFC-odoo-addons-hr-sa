@@ -54,7 +54,7 @@ class HRContract(models.Model):
     cla = fields.Selection([
         ('club_emp', 'Club Employees'),
         ('agree', 'Agreement'),
-        ('solution_emp', 'Solution Employees')], default='solution_emp', string="Class")
+        ('solution_emp', 'Solution Employees')], default='agree', string="Class")
 
     is_confirm = fields.Boolean()
 
