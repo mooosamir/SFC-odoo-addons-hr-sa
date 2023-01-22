@@ -86,7 +86,7 @@ class PurchaseRequest(models.Model):
             (
                 "groups_id",
                 "in",
-                self.env.ref("purchase_request.group_purchase_request_manager").id,
+                [self.env.ref("purchase_request.group_purchase_request_manager").id , self.env.ref("purchase_request.group_purchase_request_approver").id]
             )
         ],
         index=True,
@@ -273,6 +273,12 @@ class PurchaseRequest(models.Model):
     def button_to_approve(self):
         self.to_approve_allowed_check()
         return self.write({"state": "to_approve"})
+
+    # def button_second_approve(self):
+    #     return self.write({"state": "second_approve"})
+    #
+    # def button_third_approve(self):
+    #     return self.write({"state": "third_approve"})
 
     def button_approved(self):
         return self.write({"state": "approved"})

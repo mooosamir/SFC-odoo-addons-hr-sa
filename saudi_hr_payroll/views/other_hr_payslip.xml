@@ -6,10 +6,19 @@
         <field name="arch" type="xml">
             <form string="Other HR Payslip">
                 <header>
-                    <button name="other_hr_payslip_done" string="Done" states="draft" type="object" class="oe_highlight"
+                    <button name="submit" string="Submit" states="draft" type="object" class="oe_highlight"
+                            groups="saudi_hr_payroll.submit_other_allowance"/>
+                    <button name="first_approve" string="First Approve" states="submit" type="object" class="oe_highlight"
+                            groups="saudi_hr_payroll.first_approve_other_allowance"/>
+                    <button name="second_approve" string="Second Approve" states="first_approve" type="object" class="oe_highlight"
+                            groups="saudi_hr_payroll.second_approve_other_allowance"/>
+                    <button name="third_approve" string="Third Approve" states="second_approve" type="object" class="oe_highlight"
+                            groups="saudi_hr_payroll.third_approve_other_allowance"/>
+                    <button name="other_hr_payslip_done" string="Done" states="third_approve" type="object" class="oe_highlight"
                             groups="hr_payroll.group_hr_payroll_user"/>
-                    <button name="set_draft" string="Set as Draft" states="done" type="object"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    <button name="set_draft" string="Set as Draft" states="done,cancel" type="object"/>
+                    <button name="cancel" string="Cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submit,first_approve,second_approve,third_approve,done,cancel"/>
                 </header>
                 <sheet>
                     <separator string="Employee Information"/>

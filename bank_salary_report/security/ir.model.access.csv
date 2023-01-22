@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_bank_salary_report,wizard_bank_salary_report,model_wizard_bank_file,,1,1,1,1

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="hr_payslip_run_view_form_account" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll_account.hr_payslip_run_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_draft']" position="attributes">
+                <attribute name="states">cancel</attribute>
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_payslip_run_view_form_new" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_validate']" position="attributes">
+                <attribute name="states">GM_approve</attribute>
+                <attribute name="groups">account.group_account_invoice,account.group_account_user,account.group_account_manager</attribute>
+
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_first_approve" type="object" string="First Approve" states="verify" groups="payroll_batch_approve.first_approve_batch" class="oe_highlight" />
+                <button name="action_second_approve" type="object" string="Second Approve" states="first_approve" groups="payroll_batch_approve.second_approve_batch" class="oe_highlight" />
+                <button name="action_CEO_approve" type="object" string="Third Approve" states="second_approve" groups="payroll_batch_approve.CEO_approve_batch" class="oe_highlight" />
+                <button name="action_GM_approve" type="object" string="Fourth Approve" states="CEO_approve" groups="payroll_batch_approve.GM_approve_batch" class="oe_highlight" />
+                <button string="Cancel" name="action_payslip_cancel" type="object" states="draft,close,verify,first_approve,second_approve,CEO_approve,GM_approve"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_payslip_view_form_new" model="ir.ui.view">
+        <field name="name">hr.payslip.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='compute_sheet']" position="attributes">
+                <attribute name="states">draft,GM_approve</attribute>
+            </xpath>
+            <xpath expr="//button[@name='compute_sheet']" position="after">
+                <button name="action_first_approve" type="object" string="First Approve" states="verify" groups="payroll_batch_approve.first_approve_batch" class="oe_highlight" />
+                <button name="action_second_approve" type="object" string="Second Approve" states="first_approve" groups="payroll_batch_approve.second_approve_batch" class="oe_highlight" />
+                <button name="action_CEO_approve" type="object" string="Third Approve" states="second_approve" groups="payroll_batch_approve.CEO_approve_batch" class="oe_highlight" />
+                <button name="action_GM_approve" type="object" string="Fourth Approve" states="CEO_approve" groups="payroll_batch_approve.GM_approve_batch" class="oe_highlight" />
+            </xpath>
+
+            <xpath expr="//button[@name='action_payslip_cancel']" position="attributes">
+                <attribute name="states">draft,done,verify,GM_approve,first_approve,second_approve,CEO_approve</attribute>
+
+            </xpath>
+            <xpath expr="//button[@name='action_refresh_from_work_entries']" position="attributes">
+                <attribute name="attrs">{'invisible': ['|', ('state', 'not in', ['draft', 'verify','GM_approve','first_approve','second_approve','CEO_approve']), ('employee_id', '=', False)]}</attribute>
+
+            </xpath>
+
+        </field>
+    </record>
+
+   <record id="hr_payslip_view_form_new_account" model="ir.ui.view">
+        <field name="name">hr.payslip.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll_account.hr_payslip_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_payslip_done']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'not in', ['GM_approve'])]}</attribute>
+                <attribute name="groups">account.group_account_invoice,account.group_account_user,account.group_account_manager</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

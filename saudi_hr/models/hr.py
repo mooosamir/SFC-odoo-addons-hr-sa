@@ -6,6 +6,8 @@ from datetime import datetime
 from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.osv import expression
+
 
 
 class HrEmployee(models.Model):
@@ -105,7 +107,7 @@ class HrEmployee(models.Model):
     ksa_address_id = fields.Many2one('res.partner', 'Address in KSA')
     duration_in_months = fields.Float(compute='_get_months', string='Month(s) in Organization')
     total_service_year = fields.Char(compute='_get_service_year', string="Total Service Year")
-    service_year = fields.Integer(compute='_get_service_year', string="Service Year")
+    service_year = fields.Integer(compute='_get_service_year', string="Service Year",store=True)
     is_hod = fields.Boolean('Is HOD', help='Head of Department')
     manager = fields.Boolean(string='Is a Manager')
     profession = fields.Char(string='Profession')
@@ -119,6 +121,17 @@ class HrEmployee(models.Model):
     _sql_constraints = [
         ('unique_emp_code', 'unique(code)', 'Employee Code must be unique!'),
     ]
+    
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        if operator == 'ilike' and not (name or '').strip():
+            domain = []
+        else:
+            domain = ['|', ('name', 'ilike', name), ('code', 'ilike', name)]
+        return self._search(expression.AND([domain, args]), limit=limit, access_rights_uid=name_get_uid)
+
+
 
     @api.constrains('iqama_number','identification_id')
     def _onchange_id_iqama(self):
@@ -145,21 +158,29 @@ class HrEmployee(models.Model):
             self.date_of_leave = False
         return {'warning': warning}
 
+    @api.depends('date_of_join')
     def _get_service_year(self):
         """
             Calculate the total no of years, total no of months.
         """
-        if self.date_of_join and datetime.strptime(str(self.date_of_join), DEFAULT_SERVER_DATE_FORMAT) < datetime.strptime(str(datetime.today().date().strftime(DEFAULT_SERVER_DATE_FORMAT)), DEFAULT_SERVER_DATE_FORMAT):
-            if self.date_of_leave:
-                diff = relativedelta(datetime.strptime(str(self.date_of_leave), DEFAULT_SERVER_DATE_FORMAT), datetime.strptime(str(self.date_of_join), DEFAULT_SERVER_DATE_FORMAT))
-            else:
-                diff = relativedelta(datetime.today(), datetime.strptime(str(self.date_of_join), DEFAULT_SERVER_DATE_FORMAT))
-            self.total_service_year = " ".join([str(diff.years), 'Years', str(diff.months), "Months"])
-            self.service_year = diff.years
+        for rec in self:
+            if rec.date_of_join and datetime.strptime(str(rec.date_of_join),
+                                                      DEFAULT_SERVER_DATE_FORMAT) < datetime.strptime(
+                    str(datetime.today().date().strftime(DEFAULT_SERVER_DATE_FORMAT)), DEFAULT_SERVER_DATE_FORMAT):
+                if rec.date_of_leave:
+                    diff = relativedelta(datetime.strptime(str(rec.date_of_leave), DEFAULT_SERVER_DATE_FORMAT),
+                                         datetime.strptime(str(rec.date_of_join), DEFAULT_SERVER_DATE_FORMAT))
+                else:
+                    diff = relativedelta(datetime.today(),
+                                         datetime.strptime(str(rec.date_of_join), DEFAULT_SERVER_DATE_FORMAT))
+                rec.total_service_year = " ".join([str(diff.years), 'Years', str(diff.months), "Months"])
+                rec.service_year = diff.years
 
-        else:
-            self.total_service_year = "0 Years 0 Months"
-            self.service_year = 0
+            else:
+                rec.total_service_year = "0 Years 0 Months"
+                rec.service_year = 0
+
+
 
     @api.depends('name', 'middle_name', 'last_name')
     def name_get(self):
@@ -196,7 +217,7 @@ class HrEmployee(models.Model):
         """
             Create a new record.
         """
-        values['code'] = self.env['ir.sequence'].next_by_code('hr.employee')
+        # values['code'] = self.env['ir.sequence'].next_by_code('hr.employee')
         if values.get('country_id', False):
             country = self.env['res.country'].browse(values['country_id'])
             if country.code == 'SA':
